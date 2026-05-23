@@ -1,0 +1,2685 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Readora™ — Books &amp; Beyond</title>
+        <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23C0392B'/%3E%3Cpath d='M22 20h24a14 14 0 0 1 14 14v46a10 10 0 0 0-10-10H22z' fill='%23fff' opacity='.95'/%3E%3Cpath d='M78 20H54a14 14 0 0 0-14 14v46a10 10 0 0 1 10-10h28z' fill='%23fff' opacity='.75'/%3E%3C/svg%3E">
+        <link rel="stylesheet" href="FrontEnd/css/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="preconnect" href="https://books.google.com">
+        <link rel="preconnect" href="https://images.unsplash.com">
+        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&amp;family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&amp;display=swap">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&amp;family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&amp;display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+
+        <!-- ══════════ PROMO BANNER ══════════ -->
+        <div class="promo-banner" id="promo-banner" role="banner" aria-label="Promotional offer">
+            <span class="pb-stars">★★★★★</span>
+            <span class="pb-tag" data-i18n="promo_tag">Limited Offer</span>
+            <span class="pb-text" data-i18n="promo_text">Gift Cards now available! — Give the gift of reading. Get ₱100 off with code READGIFT</span>
+            <button class="pb-cta" onclick="showToast('Code READGIFT active! Use it in the cart.')" style="white-space: nowrap" data-i18n="promo_btn">🎁 Get Gift Card</button>
+            <button class="pb-close" onclick="
+                    document.getElementById('promo-banner').style.display =
+                        'none'
+                " aria-label="Close promo banner">
+                ✕
+            </button>
+        </div>
+
+        <!-- ══════════ NAV ══════════ -->
+        <nav role="navigation" aria-label="Main navigation">
+            <a href="#" onclick="
+                    event.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                " class="nav-logo-wrap" aria-label="Readora Home">
+                <div class="nav-logo-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                    </svg>
+                </div>
+                <span class="nav-logo">Read<span>ora</span>™</span>
+            </a>
+
+            <ul class="nav-links" role="list">
+                <li><a href="#home" data-i18n="nav_home">Home</a></li>
+                <li>
+                    <a href="#categories" data-i18n="nav_categories">Categories</a>
+                </li>
+                <li>
+                    <a href="#products" data-i18n="nav_products">Products</a>
+                </li>
+                <li class="nav-item-mega" id="stat-nav-item">
+                    <a href="FrontEnd/pages/stationery.html" style="display: flex; align-items: center; gap: 0.3rem">
+                        Stationery
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </a>
+                    <div class="mega-menu" id="mega-menu">
+                        <div class="mega-col">
+                            <h5 data-i18n="mega_bestsellers">
+                                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                </svg>
+                                Bestsellers
+                            </h5>
+                            <ul>
+                                <li>
+                                    <a href="FrontEnd/pages/stationery.html?cat=Gift+Bestsellers" data-i18n="mega_gift_bestsellers"><span data-i18n="mega_gift_bestsellers">Gift Bestsellers</span></a>
+                                </li>
+                                <li>
+                                    <a href="FrontEnd/pages/stationery.html?cat=Journal+Bestsellers" data-i18n="mega_journal_bestsellers"><span data-i18n="mega_journal_bestsellers">Journal Bestsellers</span></a>
+                                </li>
+                                <li>
+                                    <a href="FrontEnd/pages/stationery.html?cat=Planner+Bestsellers" data-i18n="mega_planner_bestsellers"><span data-i18n="mega_planner_bestsellers">Planner Bestsellers</span></a>
+                                </li>
+                                <li>
+                                    <a href="FrontEnd/pages/stationery.html?cat=All+Bestsellers" data-i18n="mega_all_bestsellers"><span data-i18n="mega_all_bestsellers">All Bestsellers</span></a>
+                                </li>
+                            </ul>
+                            <h5 style="margin-top: 0.9rem" data-i18n="mega_collections">
+                                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                </svg>
+                                Collections
+                            </h5>
+                            <ul>
+                                <li>
+                                    <a href="FrontEnd/pages/stationery.html?cat=Gifts+for+Readers" data-i18n="mega_gifts_readers"><span data-i18n="mega_gifts_readers">Gifts for Readers</span></a>
+                                </li>
+                                <li>
+                                    <a href="FrontEnd/pages/stationery.html?cat=Study+Essentials" data-i18n="mega_study_essentials"><span data-i18n="mega_study_essentials">Study Essentials</span></a>
+                                </li>
+                                <li>
+                                    <a href="FrontEnd/pages/stationery.html?cat=Desk+Accessories" data-i18n="mega_desk_accessories"><span data-i18n="mega_desk_accessories">Desk Accessories</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mega-col">
+                            <h5 data-i18n="mega_categories">
+                                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                                </svg>
+                                Categories
+                            </h5>
+                            <ul>
+                                <li>
+                                    <a href="FrontEnd/pages/stationery.html?cat=Journals" data-i18n="footer_journals">Journals &amp; Notebooks</a>
+                                </li>
+                                <li>
+                                    <a href="FrontEnd/pages/stationery.html?cat=Planners" data-i18n="footer_planners">Planners &amp; Calendars</a>
+                                </li>
+                                <li>
+                                    <a href="FrontEnd/pages/stationery.html?cat=Pens" data-i18n="footer_pens">Pens &amp; Writing</a>
+                                </li>
+                                <li>
+                                    <a href="FrontEnd/pages/stationery.html?cat=Art+Supplies" data-i18n="footer_art"><span data-i18n="footer_art">Art Supplies</span></a>
+                                </li>
+                                <li>
+                                    <a href="FrontEnd/pages/stationery.html?cat=Bags" data-i18n="footer_bags">Bags &amp; Totes</a>
+                                </li>
+                                <li>
+                                    <a href="FrontEnd/pages/stationery.html?cat=Washi" data-i18n="mega_washi">Washi Tape &amp; Stickers</a>
+                                </li>
+                                <li>
+                                    <a href="FrontEnd/pages/stationery.html?cat=Gift+Cards" data-i18n="footer_gift_cards"><span data-i18n="footer_gift_cards">Gift Cards</span></a>
+                                </li>
+                                <li>
+                                    <a href="FrontEnd/pages/stationery.html" data-i18n="mega_see_all"><span data-i18n="mega_see_all">See All ›</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mega-col">
+                            <h5 data-i18n="mega_brands">
+                                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M12 8v4M12 16h.01"></path>
+                                </svg>
+                                Brands
+                            </h5>
+                            <ul>
+                                <li>
+                                    <a href="FrontEnd/pages/stationery.html">Leuchtturm1917</a>
+                                </li>
+                                <li>
+                                    <a href="FrontEnd/pages/stationery.html">Moleskine</a>
+                                </li>
+                                <li>
+                                    <a href="FrontEnd/pages/stationery.html">Stabilo</a>
+                                </li>
+                                <li>
+                                    <a href="FrontEnd/pages/stationery.html">Pilot</a>
+                                </li>
+                                <li>
+                                    <a href="FrontEnd/pages/stationery.html">Moomin</a>
+                                </li>
+                                <li>
+                                    <a href="FrontEnd/pages/stationery.html">Rifle Paper Co.</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mega-col">
+                            <h5 data-i18n="mega_promo_codes">
+                                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                Active Promo Codes
+                            </h5>
+                            <ul>
+                                <li>
+                                    <a href="#" onclick="
+                                            showToast('Use code: READGIFT');
+                                            return false;
+                                        ">₱100 Gift Card (READGIFT)</a>
+                                </li>
+                                <li>
+                                    <a href="#" onclick="
+                                            showToast('Use code: READ10');
+                                            return false;
+                                        ">₱100 Off (READ10)</a>
+                                </li>
+                                <li>
+                                    <a href="#" onclick="
+                                            showToast('Use code: JOURNAL20');
+                                            return false;
+                                        ">₱80 Off (JOURNAL20)</a>
+                                </li>
+                                <li>
+                                    <a href="#" onclick="
+                                            showToast('Use code: READORA10');
+                                            return false;
+                                        ">10% Off (READORA10)</a>
+                                </li>
+                                <li>
+                                    <a href="#" onclick="
+                                            showToast('Use code: STATFREE');
+                                            return false;
+                                        ">₱50 Off (STATFREE)</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mega-promo">
+                            <div class="mega-promo-label">New Arrival</div>
+                            <div class="mega-promo-title">
+                                Aesthetic Study Kits for 2025
+                            </div>
+                            <button class="mega-promo-btn" onclick="
+                                    window.location.href =
+                                        'FrontEnd/pages/stationery.html'
+                                ">
+                                Shop Now
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#about" data-i18n="nav_about">About</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <div class="search-wrap" id="dsw">
+                    <div class="search-bar" role="search">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                        <input type="search" id="dsi" placeholder="Search books, authors, genres…" autocomplete="off" aria-label="Search books" aria-haspopup="listbox">
+                        <div class="rd-spinner dsi-spinner fade-in" style="display:none; width:14px; height:14px; border-width:2px; opacity:0.6; margin-left:auto; flex-shrink:0;"></div>
+                    </div>
+                    <div class="search-dropdown" id="dsd" role="listbox" aria-label="Suggestions"></div>
+                </div>
+
+                <div id="auth-btns" class="nav-auth-btns" style="display: none;">
+                    <button class="btn-login" id="nav-signin-btn" onclick="openModal('login')" aria-label="Sign in to your account">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span data-i18n="nav_signin">Sign In</span>
+                    </button>
+                    <button class="btn-signup" onclick="openModal('signup')" data-i18n="nav_signup">
+                        Sign Up
+                    </button>
+                </div>
+                <div id="user-btn-wrap" class="nav-user-wrap" style="display: none;">
+                    <button class="user-avatar-btn" id="user-avatar-btn" onclick="toggleUserDD()" aria-label="Account menu">
+                        JD
+                    </button>
+                    <div class="user-dropdown" id="user-dropdown">
+                        <div class="user-dd-header">
+                            <div id="ud-avatar" style="width: 48px; height: 48px; border-radius: 50%; overflow: hidden; margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: center; background: #C0392B; color: white; font-weight: bold; font-size: 1.2rem;"></div>
+                            <div class="user-dd-name" id="ud-name">
+                                Juan dela Cruz
+                            </div>
+                            <div class="user-dd-email" id="ud-email">
+                                juan@readora.ph
+                            </div>
+                        </div>
+                        <button class="user-dd-item" onclick="
+                                openOrderHistory();
+                                toggleUserDD();
+                            ">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Order History
+                        </button>
+                        <button class="user-dd-item" onclick="
+                                window.location.href =
+                                    'FrontEnd/pages/refund.html'
+                            ">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="1 4 1 10 7 10"></polyline>
+                                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                            </svg>
+                            Returns &amp; Refunds
+                        </button>
+                        <button class="user-dd-item" onclick="
+                                toggleWishlist();
+                                toggleUserDD();
+                            ">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                            My Wishlist
+                        </button>
+                        <button class="user-dd-item" onclick="
+                                openSettings();
+                                toggleUserDD();
+                            ">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                            </svg>
+                            Settings
+                        </button>
+                        <button class="user-dd-item danger" onclick="mockLogout()">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"></path>
+                            </svg>
+                            Log Out
+                        </button>
+                    </div>
+                </div>
+                <button class="cart-btn" onclick="toggleCart()" aria-label="Open cart">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-badge" id="cart-count" aria-live="polite">0</span>
+                </button>
+                <button class="cart-btn" onclick="toggleWishlist()" aria-label="Open wishlist" title="My Wishlist" style="position: relative">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    <span class="cart-badge" id="wish-count" aria-live="polite" style="display: none">0</span>
+                </button>
+                <button class="cart-btn" id="nav-settings-btn" onclick="openSettings()" aria-label="Settings" title="Settings &amp; Preferences">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                </button>
+                <!-- Mobile search icon -->
+                <button class="mob-search-icon" id="mob-search-icon" onclick="toggleMobileSearch()" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <!-- Expandable mobile search -->
+                <div class="mob-search-expanded" id="mob-search-expanded">
+                    <div class="search-bar" role="search" style="flex: 1">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                        <input type="search" id="mob-nav-search" placeholder="Search books, authors, genres…" autocomplete="off" aria-label="Search books">
+                        <div class="rd-spinner msi-spinner fade-in" style="display:none; width:14px; height:14px; border-width:2px; opacity:0.6; margin-left:auto; flex-shrink:0;"></div>
+                    </div>
+                    <div class="search-dropdown" id="mob-nav-dd" role="listbox" aria-label="Suggestions"></div>
+                    <button class="mob-search-close" onclick="toggleMobileSearch()" aria-label="Close search">
+                        ✕
+                    </button>
+                </div>
+            </div>
+
+            <button class="hamburger" id="hbg" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+
+        <!-- ══════════ MOBILE MENU ══════════ -->
+        <div class="mobile-menu" id="mob-menu" role="navigation" aria-label="Mobile navigation">
+            <a href="#home" class="mob-nav-link" onclick="closeMenu()">Home</a>
+            <a href="#categories" class="mob-nav-link" onclick="closeMenu()">Categories</a>
+            <a href="#products" class="mob-nav-link" onclick="closeMenu()">Products</a>
+            <!-- Accordion: Stationery -->
+            <div class="mob-accordion-item">
+                <button class="mob-nav-link mob-accordion-btn" onclick="toggleMobAccordion(this)" aria-expanded="false" aria-controls="mob-stat-body">
+                    Stationery &amp; Gifts
+                    <svg class="mob-acc-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="mob-accordion-body" id="mob-stat-body" aria-hidden="true">
+                    <a class="mob-sub-link" href="FrontEnd/pages/stationery.html" onclick="closeMenu()"><span data-i18n="footer_journals">Journals &amp; Notebooks</span></a>
+                    <a class="mob-sub-link" href="FrontEnd/pages/stationery.html" onclick="closeMenu()"><span data-i18n="footer_planners">Planners &amp; Calendars</span></a>
+                    <a class="mob-sub-link" href="FrontEnd/pages/stationery.html" onclick="closeMenu()"><span data-i18n="footer_pens">Pens &amp; Writing</span></a>
+                    <a class="mob-sub-link" href="FrontEnd/pages/stationery.html" onclick="closeMenu()"><span data-i18n="footer_art">Art Supplies</span></a>
+                    <a class="mob-sub-link" href="FrontEnd/pages/stationery.html" onclick="closeMenu()"><span data-i18n="footer_bags">Bags &amp; Totes</span></a>
+                    <a class="mob-sub-link" href="FrontEnd/pages/stationery.html" onclick="closeMenu()"><span data-i18n="footer_gift_cards">Gift Cards</span></a>
+                    <a class="mob-sub-link mob-sub-link--all" href="FrontEnd/pages/stationery.html" onclick="closeMenu()">View All Stationery →</a>
+                </div>
+            </div>
+            <a href="#about" class="mob-nav-link" onclick="closeMenu()">About</a>
+            <div id="mob-logged-out-view" style="display: none;">
+                <div class="mob-auth-btns">
+                    <button class="btn-login" onclick="
+                            closeMenu();
+                            openModal('login');
+                        ">
+                        Login
+                    </button>
+                    <button class="btn-signup" onclick="
+                            closeMenu();
+                            openModal('signup');
+                        ">
+                        Sign Up
+                    </button>
+                </div>
+
+            </div>
+
+            <div id="mob-logged-in-view" style="display: none; flex-direction: column; gap: 0.2rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem; padding: 0 0.5rem;">
+                    <div id="mob-user-avatar" style="width: 44px; height: 44px; background: #C0392B; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0;"></div>
+                    <div style="display: flex; flex-direction: column; overflow: hidden;">
+                        <span id="mob-user-name" style="font-weight: 600; color: var(--text); white-space: nowrap; text-overflow: ellipsis; overflow: hidden; font-size: 1.05rem;"></span>
+                        <span id="mob-user-email" style="font-size: 0.85rem; color: var(--text-light); white-space: nowrap; text-overflow: ellipsis; overflow: hidden;"></span>
+                    </div>
+                </div>
+                <button class="mob-settings-link" onclick="closeMenu(); openOrderHistory();" style="border:none; border-bottom: 1px solid var(--border); border-radius:0; justify-content: flex-start; padding: 0.75rem 0.5rem;">Order History</button>
+                <button class="mob-settings-link" onclick="closeMenu(); toggleWishlist();" style="border:none; border-bottom: 1px solid var(--border); border-radius:0; justify-content: flex-start; padding: 0.75rem 0.5rem;">My Wishlist</button>
+                <button class="mob-settings-link" onclick="closeMenu(); window.location.href='FrontEnd/pages/refund.html';" style="border:none; border-bottom: 1px solid var(--border); border-radius:0; justify-content: flex-start; padding: 0.75rem 0.5rem;">Returns &amp; Refunds</button>
+                <button class="mob-settings-link" onclick="closeMenu(); openSettings();" style="border:none; border-bottom: 1px solid var(--border); border-radius:0; justify-content: flex-start; padding: 0.75rem 0.5rem;">Settings</button>
+                <button class="mob-settings-link" onclick="closeMenu(); mockLogout();" style="border:none; color: #C0392B; justify-content: flex-start; padding: 0.75rem 0.5rem;">Log Out</button>
+            </div>
+        </div>
+
+        <!-- ══════════ MAIN ══════════ -->
+        <main id="main-content">
+            <!-- HERO -->
+            <section class="hero" id="home" aria-label="Hero banner">
+                <div class="hero-bg-text" aria-hidden="true">BOOKS</div>
+                <div class="hero-content">
+                    <div class="hero-tag">
+                        <span class="dot" aria-hidden="true"></span><span data-i18n="hero_badge">New arrivals every week</span>
+                    </div>
+                    <h1 class="sr-hidden" style="transition-delay: 0ms">
+                        Find Your Next<br><em>Favourite</em><br>Story.
+                    </h1>
+                    <p class="hero-sub sr-hidden" style="transition-delay: 120ms">
+                        Over 1,000 titles across every genre — fiction, science,
+                        history, self-help, and beyond. Curated for curious
+                        minds.
+                    </p>
+                    <div class="hero-cta sr-hidden" style="transition-delay: 240ms">
+                        <a href="#products" class="btn-primary">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                            </svg>
+                            <span class="hero-cta-text">Browse Books</span>
+                        </a>
+                        <a href="#categories" class="btn-outline" data-i18n="hero_btn_browse">Explore Categories</a>
+                    </div>
+                    <div class="hero-stats sr-hidden" style="transition-delay: 360ms">
+                        <div class="stat">
+                            <span class="stat-num">1,200+</span><span class="stat-label">BOOKS</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-num">50k+</span><span class="stat-label">READERS</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-num">4.9★</span><span class="stat-label">RATING</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-books" aria-hidden="true">
+                    <div class="floating-book">
+                        <img src="FrontEnd/BooksImage/The-Great-Gatsby.jpg" alt="The Great Gatsby cover" loading="eager" fetchpriority="high" onerror="
+                                this.src =
+                                    'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&amp;q=80'
+                            ">
+                    </div>
+                    <div class="floating-book">
+                        <img src="FrontEnd/BooksImage/Midnight_Library.jpg" alt="The Midnight Library cover" loading="eager" fetchpriority="high" onerror="
+                                this.src =
+                                    'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&amp;q=80'
+                            ">
+                    </div>
+                    <div class="floating-book">
+                        <img src="FrontEnd/BooksImage/The_Alchemist.jpg" alt="The Alchemist cover" loading="eager" fetchpriority="high" onerror="
+                                this.src =
+                                    'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&amp;q=80'
+                            ">
+                    </div>
+                </div>
+            </section>
+
+            <!-- ABOUT -->
+            <section id="about" aria-labelledby="about-h">
+                <div class="about-inner">
+                    <div class="about-visual sr-hidden sr-left" aria-hidden="true">
+                        <div class="about-box">
+                            <span><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
+                                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></span>
+                            <p>1,200+</p>
+                            <small>Books in Stock</small>
+                        </div>
+                        <div class="about-box">
+                            <span><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span>
+                            <p>4.9/5</p>
+                            <small>Customer Rating</small>
+                        </div>
+                        <div class="about-box">
+                            <span><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></span>
+                            <p>50k+</p>
+                            <small>Happy Readers</small>
+                        </div>
+                        <div class="about-box">
+                            <span><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+                            <p>3-Day</p>
+                            <small>Fast Delivery</small>
+                        </div>
+                    </div>
+                    <div class="about-text sr-hidden sr-right" style="transition-delay: 120ms">
+                        <div class="section-label" data-i18n="about_label">Our Story</div>
+                        <h2 class="section-title" id="about-h" data-i18n="section_about">
+                            About Readora
+                        </h2>
+                        <p data-i18n="about_p1">
+                            Readora was born from a simple belief: every person
+                            deserves access to extraordinary books without
+                            limits. Founded in 2021, we set out to build more
+                            than a bookstore — a community of passionate readers
+                            united by the transformative power of storytelling.
+                            From dog-eared paperbacks to pristine hardcovers,
+                            each title is sourced with care.
+                        </p>
+                        <p data-i18n="about_p2">
+                            Today, we serve over 50,000 readers across the
+                            Philippines and beyond, with a curated catalogue of
+                            more than 1,200 titles spanning every genre
+                            imaginable. Our team of in-house bibliophiles
+                            personally reviews each book — ensuring whatever
+                            lands on your shelf is worthy of your time. We're
+                            not just selling books, we're opening doors to new
+                            worlds.
+                        </p>
+                        <div class="about-features">
+                            <div class="about-feat" data-i18n="about_perks">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                                    <polyline points="20 6 9 17 4 12"></polyline></svg>Free shipping on ₱800+ · 30-day returns · Authenticity guaranteed
+                            </div>
+                        </div>
+                        <a href="#products" class="btn-primary" style="margin-top: 1.5rem">Shop Now
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                                <path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+                    </div>
+                </div>
+
+                <!-- Phase 2: Meet the Team -> drawer trigger -->
+                <div style="text-align: center; margin-top: 3rem">
+                    <button class="btn-outline" onclick="toggleTeamDrawer()" style="
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 0.55rem;
+                        ">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        Meet the Team
+                    </button>
+                </div>
+            </section>
+
+            <!-- CATEGORIES -->
+            <section id="categories" aria-labelledby="cat-h">
+                <div class="section-header">
+                    <div class="section-label sr-hidden" data-i18n="cats_label">
+                        Browse by Genre
+                    </div>
+                    <h2 class="section-title sr-hidden" id="cat-h" style="transition-delay: 80ms" data-i18n="cats_title">
+                        Explore Categories
+                    </h2>
+                    <p class="section-sub sr-hidden" style="transition-delay: 160ms" data-i18n="cats_intro">
+                        From page-turning thrillers to timeless classics — find
+                        exactly what you're in the mood for.
+                    </p>
+                </div>
+                <div class="categories-grid" role="list">
+                    <div tabindex="0" class="cat-card sr-hidden sr-scale" role="listitem" onclick="catClick('all', 'bestseller')" onkeydown="
+                            if (event.key === 'Enter' || event.key === ' ') {
+                                event.preventDefault();
+                                this.click();
+                            }
+                        " style="
+                            transition-delay: 0ms;
+                            background-image: url(&quot;https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&amp;q=80&quot;);
+                        ">
+                        <span class="cat-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                <polyline points="17 6 23 6 23 12"></polyline></svg></span>
+                        <span class="cat-name">Bestsellers</span><span class="cat-count">248 books</span>
+                    </div>
+                    <div tabindex="0" class="cat-card sr-hidden sr-scale" role="listitem" onclick="catClick('cat', 'Fantasy')" onkeydown="
+                            if (event.key === 'Enter' || event.key === ' ') {
+                                event.preventDefault();
+                                this.click();
+                            }
+                        " style="
+                            transition-delay: 80ms;
+                            background-image: url(&quot;https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400&amp;q=80&quot;);
+                        ">
+                        <span class="cat-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span>
+                        <span class="cat-name">Fantasy</span><span class="cat-count">182 books</span>
+                    </div>
+                    <div tabindex="0" class="cat-card sr-hidden sr-scale" role="listitem" onclick="catClick('cat', 'Sci-Fi')" onkeydown="
+                            if (event.key === 'Enter' || event.key === ' ') {
+                                event.preventDefault();
+                                this.click();
+                            }
+                        " style="
+                            transition-delay: 160ms;
+                            background-image: url(&quot;https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=400&amp;q=80&quot;);
+                        ">
+                        <span class="cat-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                                <circle cx="12" cy="12" r="4"></circle>
+                                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg></span>
+                        <span class="cat-name">Sci-Fi</span><span class="cat-count">139 books</span>
+                    </div>
+                    <div tabindex="0" class="cat-card sr-hidden sr-scale" role="listitem" onclick="catClick('cat', 'Mystery')" onkeydown="
+                            if (event.key === 'Enter' || event.key === ' ') {
+                                event.preventDefault();
+                                this.click();
+                            }
+                        " style="
+                            transition-delay: 240ms;
+                            background-image: url(&quot;https://images.unsplash.com/photo-1448375240586-882707db888b?w=400&amp;q=80&quot;);
+                        ">
+                        <span class="cat-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path></svg></span>
+                        <span class="cat-name">Mystery</span><span class="cat-count">215 books</span>
+                    </div>
+                    <div tabindex="0" class="cat-card sr-hidden sr-scale" role="listitem" onclick="catClick('cat', 'Self-Help')" onkeydown="
+                            if (event.key === 'Enter' || event.key === ' ') {
+                                event.preventDefault();
+                                this.click();
+                            }
+                        " style="
+                            transition-delay: 320ms;
+                            background-image: url(&quot;https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=400&amp;q=80&quot;);
+                        ">
+                        <span class="cat-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M12 8v4M12 16h.01"></path></svg></span>
+                        <span class="cat-name">Self-Help</span><span class="cat-count">96 books</span>
+                    </div>
+                    <div tabindex="0" class="cat-card sr-hidden sr-scale" role="listitem" onclick="catClick('cat', 'History')" onkeydown="
+                            if (event.key === 'Enter' || event.key === ' ') {
+                                event.preventDefault();
+                                this.click();
+                            }
+                        " style="
+                            transition-delay: 400ms;
+                            background-image: url(&quot;https://images.unsplash.com/photo-1447069387593-a5de0862481e?w=400&amp;q=80&quot;);
+                        ">
+                        <span class="cat-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline></svg></span>
+                        <span class="cat-name">History</span><span class="cat-count">174 books</span>
+                    </div>
+                    <div tabindex="0" class="cat-card sr-hidden sr-scale" role="listitem" onclick="catClick('cat', 'Business')" onkeydown="
+                            if (event.key === 'Enter' || event.key === ' ') {
+                                event.preventDefault();
+                                this.click();
+                            }
+                        " style="
+                            transition-delay: 480ms;
+                            background-image: url(&quot;https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&amp;q=80&quot;);
+                        ">
+                        <span class="cat-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                                <rect x="2" y="7" width="20" height="14" rx="2"></rect>
+                                <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path></svg></span>
+                        <span class="cat-name">Business</span><span class="cat-count">88 books</span>
+                    </div>
+                    <div tabindex="0" class="cat-card sr-hidden sr-scale" role="listitem" onclick="catClick('cat', 'Romance')" onkeydown="
+                            if (event.key === 'Enter' || event.key === ' ') {
+                                event.preventDefault();
+                                this.click();
+                            }
+                        " style="
+                            transition-delay: 560ms;
+                            background-image: url(&quot;https://images.unsplash.com/photo-1474552226712-ac0f0961a954?w=400&amp;q=80&quot;);
+                        ">
+                        <span class="cat-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span>
+                        <span class="cat-name">Romance</span><span class="cat-count">201 books</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PRODUCTS -->
+            <section id="products" aria-labelledby="prod-h">
+                <div class="section-header">
+                    <div class="section-label sr-hidden" data-i18n="products_label">Our Collection</div>
+                    <h2 class="section-title sr-hidden" id="prod-h" style="transition-delay: 80ms" data-i18n="section_featured">
+                        Featured Books
+                    </h2>
+                    <p class="section-sub sr-hidden" style="transition-delay: 160ms" data-i18n="products_intro">
+                        Handpicked titles our readers love most. Click any
+                        category above to jump right here.
+                    </p>
+                </div>
+                <div class="filter-bar-row" role="tablist" aria-label="Filter books">
+                    <button class="filter-tab active desktop-filter-tab" role="tab" aria-selected="true" onclick="setFilterWithFade(this, 'all')" data-i18n="filter_all">
+                        All Books
+                    </button>
+                    <button class="filter-tab desktop-filter-tab" role="tab" aria-selected="false" onclick="setFilterWithFade(this, 'bestseller')" data-i18n="filter_bestsellers">
+                        Bestsellers
+                    </button>
+                    <button class="filter-tab desktop-filter-tab" role="tab" aria-selected="false" onclick="setFilterWithFade(this, 'new')" data-i18n="filter_new">
+                        New Arrivals
+                    </button>
+                    <button class="filter-tab desktop-filter-tab" role="tab" aria-selected="false" onclick="setFilterWithFade(this, 'sale')" data-i18n="filter_sale">
+                        On Sale
+                    </button>
+                    <button class="filter-toggle-btn" id="adv-filter-toggle" onclick="toggleAdvFilter()" title="Filters">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <line x1="4" y1="6" x2="20" y2="6"></line>
+                            <line x1="8" y1="12" x2="16" y2="12"></line>
+                            <line x1="11" y1="18" x2="13" y2="18"></line>
+                        </svg>
+                        Filters
+                        <span id="adv-filter-badge" style="
+                                display: none;
+                                background: #fff;
+                                color: var(--accent);
+                                border-radius: 100px;
+                                font-size: 0.65rem;
+                                font-weight: 800;
+                                padding: 0.05rem 0.4rem;
+                                margin-left: 0.2rem;
+                                line-height: 1.4;
+                            "></span>
+                    </button>
+                </div>
+                <div class="filter-layout">
+                    <!-- Mobile backdrop for filter bottom sheet -->
+                    <div class="adv-filter-backdrop" id="adv-filter-backdrop" onclick="toggleAdvFilter()"></div>
+                    <!-- ADVANCED FILTER PANEL -->
+                    <div class="adv-filter-panel" id="adv-filter-panel">
+                        <div class="adv-filter-title">
+                            Filters
+                            <div style="
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 0.6rem;
+                                ">
+                                <button onclick="resetAdvFilters()" style="
+                                        font-size: 0.7rem;
+                                        background: none;
+                                        border: none;
+                                        color: var(--accent);
+                                        cursor: pointer;
+                                        font-family:
+                                            &quot;DM Sans&quot;, sans-serif;
+                                        font-weight: 600;
+                                    ">
+                                    Reset All
+                                </button>
+                                <button onclick="toggleAdvFilter()" aria-label="Close filters" style="
+                                        background: none;
+                                        border: none;
+                                        cursor: pointer;
+                                        color: var(--text-muted);
+                                        font-size: 1.2rem;
+                                        line-height: 1;
+                                        padding: 0 0.1rem;
+                                    " id="adv-filter-close">
+                                    ✕
+                                </button>
+                            </div>
+                        </div>
+                        <!-- TYPE / COLLECTION QUICK FILTERS (moved from filter bar row) -->
+                        <div class="afp-section">
+                            <div class="afp-section-label">Type</div>
+                            <div class="afp-type-grid">
+                                <button class="afp-type-btn active" onclick="setTypeFilter(this, 'all')">
+                                    All Books
+                                </button>
+                                <button class="afp-type-btn" onclick="setTypeFilter(this, 'bestseller')">
+                                    Bestsellers
+                                </button>
+                                <button class="afp-type-btn" onclick="setTypeFilter(this, 'new')">
+                                    New Arrivals
+                                </button>
+                                <button class="afp-type-btn" onclick="setTypeFilter(this, 'sale')">
+                                    On Sale
+                                </button>
+                                <button class="afp-type-btn" onclick="setTypeFilter(this, 'cat:Manga')" style="
+                                        background: linear-gradient(
+                                            135deg,
+                                            #1a1a2e,
+                                            #2563eb
+                                        );
+                                        color: #fff;
+                                        border-color: transparent;
+                                    ">
+                                    Manga
+                                </button>
+                                <button class="afp-type-btn" onclick="setTypeFilter(this, 'cat:Manhwa')" style="
+                                        background: linear-gradient(
+                                            135deg,
+                                            #064e3b,
+                                            #312e81
+                                        );
+                                        color: #fff;
+                                        border-color: transparent;
+                                    ">
+                                    Manhwa
+                                </button>
+                                <button class="afp-type-btn" onclick="setTypeFilter(this, 'cat:Wattpad')" style="
+                                        background: linear-gradient(
+                                            135deg,
+                                            #7c3aed,
+                                            #db2777
+                                        );
+                                        color: #fff;
+                                        border-color: transparent;
+                                    ">
+                                    Wattpad
+                                </button>
+                                <button class="afp-type-btn" onclick="
+                                        setTypeFilter(this, 'cat:Stationery')
+                                    " style="
+                                        background: linear-gradient(
+                                            135deg,
+                                            #92400e,
+                                            #b45309
+                                        );
+                                        color: #fff;
+                                        border-color: transparent;
+                                    ">
+                                    🖊️ Stationery
+                                </button>
+                            </div>
+                        </div>
+                        <div class="afp-section">
+                            <div class="afp-section-label">Genre</div>
+                            <label class="afp-check-row"><input type="checkbox" class="afp-genre" value="Fiction" onchange="applyAdvFilters(true)">
+                                Fiction</label>
+                            <label class="afp-check-row"><input type="checkbox" class="afp-genre" value="Sci-Fi" onchange="applyAdvFilters(true)">
+                                Sci-Fi</label>
+                            <label class="afp-check-row"><input type="checkbox" class="afp-genre" value="Fantasy" onchange="applyAdvFilters(true)">
+                                Fantasy</label>
+                            <label class="afp-check-row"><input type="checkbox" class="afp-genre" value="Mystery" onchange="applyAdvFilters(true)">
+                                Mystery</label>
+                            <label class="afp-check-row"><input type="checkbox" class="afp-genre" value="Romance" onchange="applyAdvFilters(true)">
+                                Romance</label>
+                            <label class="afp-check-row"><input type="checkbox" class="afp-genre" value="Self-Help" onchange="applyAdvFilters(true)">
+                                Self-Help</label>
+                            <label class="afp-check-row"><input type="checkbox" class="afp-genre" value="History" onchange="applyAdvFilters(true)">
+                                History</label>
+                            <label class="afp-check-row"><input type="checkbox" class="afp-genre" value="Business" onchange="applyAdvFilters(true)">
+                                Business</label>
+                            <label class="afp-check-row"><input type="checkbox" class="afp-genre" value="Manga" onchange="applyAdvFilters(true)">
+                                Manga</label>
+                            <label class="afp-check-row"><input type="checkbox" class="afp-genre" value="Manhwa" onchange="applyAdvFilters(true)">
+                                Manhwa</label>
+                            <label class="afp-check-row"><input type="checkbox" class="afp-genre" value="Wattpad" onchange="applyAdvFilters(true)">
+                                Wattpad</label>
+                        </div>
+                        <div class="afp-section">
+                            <div class="afp-section-label">Price Range</div>
+                            <input type="range" class="afp-range" id="price-range" min="0" max="1000" value="1000" step="50" oninput="
+                                    document.getElementById(
+                                        'price-val',
+                                    ).textContent = 'Up to ₱' + this.value;
+                                    applyAdvFilters();
+                                ">
+                            <div class="afp-range-labels">
+                                <span>₱0</span><span id="price-val">Up to ₱1000</span>
+                            </div>
+                        </div>
+                        <div class="afp-section">
+                            <div class="afp-section-label">Minimum Rating</div>
+                            <div class="afp-btn-grid">
+                                <button class="afp-btn active" onclick="setRatingFilter(this, 0)">
+                                    Any
+                                </button>
+                                <button class="afp-btn" onclick="setRatingFilter(this, 3)">
+                                    3★+
+                                </button>
+                                <button class="afp-btn" onclick="setRatingFilter(this, 4)">
+                                    4★+
+                                </button>
+                                <button class="afp-btn" onclick="setRatingFilter(this, 5)">
+                                    5★ Only
+                                </button>
+                            </div>
+                        </div>
+                        <div class="afp-section">
+                            <div class="afp-section-label">Availability</div>
+                            <label class="afp-radio-row"><input type="radio" name="avail" value="all" checked="" onchange="applyAdvFilters()">
+                                All</label>
+                            <label class="afp-radio-row"><input type="radio" name="avail" value="sale" onchange="applyAdvFilters()">
+                                On Sale</label>
+                            <label class="afp-radio-row"><input type="radio" name="avail" value="new" onchange="applyAdvFilters()">
+                                New Arrivals</label>
+                        </div>
+                        <div class="afp-section">
+                            <div class="afp-section-label">Sort By</div>
+                            <div class="afp-btn-grid">
+                                <button class="afp-btn active" id="sort-btn-default" onclick="setSortOrder(this, 'default')">
+                                    Featured
+                                </button>
+                                <button class="afp-btn" id="sort-btn-price-asc" onclick="setSortOrder(this, 'price-asc')">
+                                    Price ↑
+                                </button>
+                                <button class="afp-btn" id="sort-btn-price-desc" onclick="setSortOrder(this, 'price-desc')">
+                                    Price ↓
+                                </button>
+                                <button class="afp-btn" id="sort-btn-rating" onclick="setSortOrder(this, 'rating')">
+                                    Top Rated
+                                </button>
+                                <button class="afp-btn" id="sort-btn-reviews" onclick="setSortOrder(this, 'reviews')">
+                                    Most Reviewed
+                                </button>
+                                <button class="afp-btn" id="sort-btn-title" onclick="setSortOrder(this, 'title')">
+                                    A → Z
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="products-main">
+                        <div class="products-grid" id="products-grid" role="list" aria-live="polite"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══════════ RECENTLY VIEWED ══════════ -->
+            <div class="recommended-section" id="recently-viewed-section" style="display: none">
+                <div class="section-label" data-i18n="recently_label">Pick Up Where You Left Off</div>
+                <h2 class="section-title" style="margin-bottom: 1.3rem" data-i18n="section_recently_viewed">
+                    Recently Viewed
+                </h2>
+                <div class="rec-scroll" id="recently-viewed-scroll"></div>
+            </div>
+
+            <!-- ══════════ RECOMMENDED SECTION ══════════ -->
+            <div class="recommended-section" id="rec-section">
+                <div class="section-label" data-i18n="recommended_label">Curated For You</div>
+                <h2 class="section-title" style="margin-bottom: 1.3rem" data-i18n="section_recommended">
+                    Recommended Reads
+                </h2>
+                <div class="rec-scroll" id="rec-scroll"></div>
+            </div>
+
+            <!-- TESTIMONIALS -->
+            <section id="testimonials" aria-labelledby="test-h">
+                <div class="section-header center">
+                    <div class="section-label" data-i18n="testimonials_label">Reviews</div>
+                    <h2 class="section-title" id="test-h" data-i18n="section_testimonials">
+                        What Our Customers Say
+                    </h2>
+                </div>
+                <div class="testi-carousel-wrap">
+                    <div class="testi-grid" id="testi-carousel">
+                        <div class="testi-card">
+                            <div class="t-stars" aria-label="5 stars">
+                                ★★★★★
+                            </div>
+                            <p class="t-text">
+                                "Readora completely transformed my reading life.
+                                The selection is incredible and prices
+                                unbeatable. I find books I never would have
+                                discovered elsewhere."
+                            </p>
+                            <div class="t-author">
+                                <div class="t-avatar">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Maria Santos" onerror="
+                                            this.parentElement.textContent =
+                                                'MS'
+                                        ">
+                                </div>
+                                <div>
+                                    <div class="t-name">Maria Santos</div>
+                                    <div class="t-label">
+                                        Verified Buyer · 42 books
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testi-card">
+                            <div class="t-stars" aria-label="5 stars">
+                                ★★★★★
+                            </div>
+                            <p class="t-text">
+                                "The curated collections are spot on. Every
+                                recommendation has been a hit. Fast delivery and
+                                beautiful packaging — this is how book shopping
+                                should feel."
+                            </p>
+                            <div class="t-author">
+                                <div class="t-avatar">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James Reyes" onerror="
+                                            this.parentElement.textContent =
+                                                'JR'
+                                        ">
+                                </div>
+                                <div>
+                                    <div class="t-name">James Reyes</div>
+                                    <div class="t-label">
+                                        Verified Buyer · 28 books
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testi-card">
+                            <div class="t-stars" aria-label="2 stars" style="color: #9a9490">
+                                ★★☆☆☆
+                            </div>
+                            <p class="t-text">
+                                "Two of my three books arrived with damaged
+                                spines. Customer service eventually helped but
+                                it took over a week. The site itself is easy to
+                                use, but quality control needs work."
+                            </p>
+                            <div class="t-author">
+                                <div class="t-avatar">
+                                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Reina Bautista" onerror="
+                                            this.parentElement.textContent =
+                                                'RB'
+                                        ">
+                                </div>
+                                <div>
+                                    <div class="t-name">Reina Bautista</div>
+                                    <div class="t-label">
+                                        Verified Buyer · 3 books
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testi-card">
+                            <div class="t-stars" aria-label="5 stars">
+                                ★★★★★
+                            </div>
+                            <p class="t-text">
+                                "Love the dark mode — so easy on my eyes for
+                                late-night browsing! As a fantasy lover I can
+                                always find something exciting. Absolutely love
+                                this store!"
+                            </p>
+                            <div class="t-author">
+                                <div class="t-avatar">
+                                    <img src="https://randomuser.me/api/portraits/women/29.jpg" alt="Aisha Cruz" onerror="
+                                            this.parentElement.textContent =
+                                                'AC'
+                                        ">
+                                </div>
+                                <div>
+                                    <div class="t-name">Aisha Cruz</div>
+                                    <div class="t-label">
+                                        Verified Buyer · 67 books
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testi-card">
+                            <div class="t-stars" aria-label="3 stars" style="color: #b08004">
+                                ★★★☆☆
+                            </div>
+                            <p class="t-text">
+                                "Selection is good but shipping took 8 days
+                                instead of the promised 3. The book itself was
+                                in great condition when it arrived. Would order
+                                again but with lower expectations on speed."
+                            </p>
+                            <div class="t-author">
+                                <div class="t-avatar">
+                                    <img src="https://randomuser.me/api/portraits/men/56.jpg" alt="Rico Dela Torre" onerror="
+                                            this.parentElement.textContent =
+                                                'RD'
+                                        ">
+                                </div>
+                                <div>
+                                    <div class="t-name">Rico Dela Torre</div>
+                                    <div class="t-label">
+                                        Verified Buyer · 7 books
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testi-card">
+                            <div class="t-stars" aria-label="5 stars">
+                                ★★★★★
+                            </div>
+                            <p class="t-text">
+                                "I ordered three books on a Tuesday and they
+                                arrived Thursday. The packaging was gorgeous and
+                                the books were in perfect condition. Will
+                                definitely order again!"
+                            </p>
+                            <div class="t-author">
+                                <div class="t-avatar">
+                                    <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Carlo Mendoza" onerror="
+                                            this.parentElement.textContent =
+                                                'CM'
+                                        ">
+                                </div>
+                                <div>
+                                    <div class="t-name">Carlo Mendoza</div>
+                                    <div class="t-label">
+                                        Verified Buyer · 15 books
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testi-card">
+                            <div class="t-stars" aria-label="4 stars">
+                                ★★★★☆
+                            </div>
+                            <p class="t-text">
+                                "Great platform overall. The search is really
+                                fast and the categories are well organised.
+                                Knocked one star off because the promo I tried
+                                didn't apply correctly at checkout."
+                            </p>
+                            <div class="t-author">
+                                <div class="t-avatar">
+                                    <img src="https://randomuser.me/api/portraits/women/11.jpg" alt="Tanya Go" onerror="
+                                            this.parentElement.textContent =
+                                                'TG'
+                                        ">
+                                </div>
+                                <div>
+                                    <div class="t-name">Tanya Go</div>
+                                    <div class="t-label">
+                                        Verified Buyer · 19 books
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testi-card">
+                            <div class="t-stars" aria-label="5 stars">
+                                ★★★★★
+                            </div>
+                            <p class="t-text">
+                                "As a literature teacher, I rely on Readora for
+                                classroom copies. Bulk pricing is fair, stock is
+                                always available, and the team is so helpful.
+                                Highly recommend!"
+                            </p>
+                            <div class="t-author">
+                                <div class="t-avatar">
+                                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Dr. Lea Flores" onerror="
+                                            this.parentElement.textContent =
+                                                'LF'
+                                        ">
+                                </div>
+                                <div>
+                                    <div class="t-name">Dr. Lea Flores</div>
+                                    <div class="t-label">
+                                        Verified Buyer · 130 books
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testi-nav" aria-label="Carousel navigation">
+                        <button class="testi-arrow" id="testi-prev" aria-label="Previous review">
+                            ←
+                        </button>
+                        <div class="testi-dots" id="testi-dots" role="tablist"></div>
+                        <button class="testi-arrow" id="testi-next" aria-label="Next review">
+                            →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ══ WRITE A REVIEW FORM ══ -->
+                <div class="write-review-wrap">
+                    <div class="write-review-box">
+                        <div class="wr-header">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.2" aria-hidden="true">
+                                <path d="M11 5H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-5m-1.414-9.414a2 2 0 1 1 2.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                            </svg><h3>
+                                Share Your Experience
+                            </h3>
+                        </div>
+                        <p class="wr-sub">
+                            Loved shopping at Readora? Tell other readers what you think of our store.
+                        </p>
+                        <div class="wr-star-row" aria-label="Select rating" id="wr-stars">
+                            <button class="wr-star" data-val="1" aria-label="1 star" onclick="setReviewRating(1)">
+                                ★
+                            </button>
+                            <button class="wr-star" data-val="2" aria-label="2 stars" onclick="setReviewRating(2)">
+                                ★
+                            </button>
+                            <button class="wr-star" data-val="3" aria-label="3 stars" onclick="setReviewRating(3)">
+                                ★
+                            </button>
+                            <button class="wr-star" data-val="4" aria-label="4 stars" onclick="setReviewRating(4)">
+                                ★
+                            </button>
+                            <button class="wr-star" data-val="5" aria-label="5 stars" onclick="setReviewRating(5)">
+                                ★
+                            </button>
+                            <span class="wr-star-label" id="wr-star-label">Tap to rate</span>
+                        </div>
+                        <div class="wr-fields">
+                            <div class="wr-field-row">
+                                <input class="wr-input" id="wr-name" type="text" placeholder="Your name" maxlength="50" autocomplete="off" data-i18n-placeholder="review_name">
+                            </div>
+                            <textarea class="wr-textarea" id="wr-comment" placeholder="What do you love about shopping at Readora? Tell us about your experience..." maxlength="400" rows="3" data-i18n-placeholder="review_comment"></textarea>
+                            <div class="wr-actions">
+                                <span class="wr-char-count" id="wr-char">0 / 400</span>
+                                <button class="wr-submit" onclick="submitReview()">
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                                        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
+                                    </svg>
+                                    <span data-i18n="btn_post_review">Post Review</span>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- User-submitted reviews list -->
+                        <div class="wr-submitted" id="wr-submitted"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- ══════════ STICKY BUY NOW BAR (Phase 3 · Mobile only) ══════════ -->
+        <div class="sticky-buy-bar" id="sticky-buy-bar" aria-label="Quick purchase">
+            <div class="sticky-buy-price">
+                <small>Price</small>
+                <span id="sticky-buy-price-val">₱0</span>
+            </div>
+            <div class="sticky-buy-actions">
+                <button class="sticky-buy-wish" id="sticky-buy-wish-btn" aria-label="Add to wishlist">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                </button>
+                <button class="sticky-buy-cart" id="sticky-buy-cart-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+        <!-- ══════════ BANNER AD ══════════ -->
+        <div class="banner-ad" id="banner-ad">
+            <button class="banner-ad-close" onclick="
+                    document.getElementById('banner-ad').style.display = 'none'
+                " aria-label="Close ad">
+                ✕
+            </button>
+            <div class="banner-ad-icon">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f4a261" stroke-width="2" aria-hidden="true">
+                    <rect x="1" y="6" width="22" height="13" rx="2"></rect>
+                    <path d="M1 10h22M8 10V6a4 4 0 0 1 8 0v4"></path>
+                </svg>
+            </div>
+            <div class="banner-ad-text">
+                <div class="banner-ad-tag">
+                    Exclusive Offer · For Readora Members
+                </div>
+                <div class="banner-ad-title">
+                    Readora Gift Cards — Starting at ₱200
+                </div>
+                <div class="banner-ad-sub">
+                    Give the gift of reading. Perfect for any occasion. Load
+                    ₱200–₱5,000.
+                </div>
+            </div>
+            <button class="banner-ad-cta" onclick="
+                    showToast('Use code READGIFT at checkout for ?100 off!')
+                ">
+                Get Your Discount
+            </button>
+        </div>
+
+        <!-- ══════════ FOOTER ══════════ -->
+        <footer>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" onclick="
+                            event.preventDefault();
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        " class="footer-logo" style="display: flex; align-items: center; gap: 0.5rem">
+                        <div style="
+                                width: 28px;
+                                height: 28px;
+                                background: var(--accent);
+                                border-radius: 7px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                flex-shrink: 0;
+                            ">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                            </svg>
+                        </div>
+                        <span style="
+                                font-family:
+                                    &quot;Playfair Display&quot;, serif;
+                                font-size: 1.35rem;
+                                font-weight: 900;
+                                color: var(--footer-text);
+                                letter-spacing: -0.3px;
+                            ">Read<span style="color: var(--accent)">ora</span>™</span>
+                    </a>
+                    <p>
+                        Your unlimited destination for books. Discover, read,
+                        and get lost in stories that change your life. Proudly
+                        serving readers across the Philippines.
+                    </p>
+                    <div class="social-links" aria-label="Social media">
+                        <a href="#" onclick="event.preventDefault()" class="social-link" aria-label="X / Twitter">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" onclick="event.preventDefault()" class="social-link" aria-label="Facebook">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" onclick="event.preventDefault()" class="social-link" aria-label="Instagram">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" onclick="event.preventDefault()" class="social-link" aria-label="LinkedIn">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    <!-- Payment methods moved here, under social links -->
+                    <div class="footer-pay-label" aria-label="We accept">
+                        We accept
+                    </div>
+                    <div class="pay-pills footer-brand-pay" aria-label="Accepted payments">
+                        <span class="pay-pill" title="GCash">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10" fill="#007DFF" opacity=".3"></circle>
+                                <text x="12" y="16.5" text-anchor="middle" font-size="10" font-weight="800" fill="#007DFF" font-family="sans-serif">
+                                    G
+                                </text>
+                            </svg>
+                            GCash
+                        </span>
+                        <span class="pay-pill" title="Maya">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10" fill="#6C2DC7" opacity=".3"></circle>
+                                <text x="12" y="16.5" text-anchor="middle" font-size="10" font-weight="800" fill="#6C2DC7" font-family="sans-serif">
+                                    M
+                                </text>
+                            </svg>
+                            Maya
+                        </span>
+                        <span class="pay-pill" title="Visa">
+                            <svg width="22" height="14" viewBox="0 0 38 24" fill="none" aria-hidden="true">
+                                <rect width="38" height="24" rx="4" fill="#1a1f71"></rect>
+                                <text x="19" y="17" text-anchor="middle" font-size="12" font-weight="800" fill="#fff" font-family="sans-serif" letter-spacing="1">
+                                    VISA
+                                </text>
+                            </svg>
+                        </span>
+                        <span class="pay-pill" title="Mastercard">
+                            <svg width="22" height="14" viewBox="0 0 38 24" fill="none" aria-hidden="true">
+                                <rect width="38" height="24" rx="4" fill="#252525"></rect>
+                                <circle cx="14" cy="12" r="8" fill="#eb001b"></circle>
+                                <circle cx="24" cy="12" r="8" fill="#f79e1b" opacity=".85"></circle>
+                            </svg>
+                            MC
+                        </span>
+                        <span class="pay-pill" title="Cash on Delivery">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--footer-muted)" stroke-width="2" aria-hidden="true">
+                                <rect x="2" y="7" width="20" height="14" rx="2"></rect>
+                                <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path>
+                            </svg>
+                            COD
+                        </span>
+                    </div>
+                </div>
+                <div class="footer-cols-wrap">
+                    <div class="footer-col">
+                        <h4 data-i18n="footer_shop">Shop</h4>
+                        <ul>
+                            <li>
+                                <a href="#" onclick="
+                                        event.preventDefault();
+                                        setFilter(
+                                            document.querySelector(
+                                                '.filter-tab',
+                                            ),
+                                            'all',
+                                        );
+                                        document
+                                            .getElementById('products')
+                                            .scrollIntoView({
+                                                behavior: 'smooth',
+                                            });
+                                    ">All Books</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="
+                                        event.preventDefault();
+                                        setFilter(
+                                            document.querySelectorAll(
+                                                '.filter-tab',
+                                            )[1],
+                                            'bestseller',
+                                        );
+                                        document
+                                            .getElementById('products')
+                                            .scrollIntoView({
+                                                behavior: 'smooth',
+                                            });
+                                    ">Bestsellers</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="
+                                        event.preventDefault();
+                                        setFilter(
+                                            document.querySelectorAll(
+                                                '.filter-tab',
+                                            )[2],
+                                            'new',
+                                        );
+                                        document
+                                            .getElementById('products')
+                                            .scrollIntoView({
+                                                behavior: 'smooth',
+                                            });
+                                    ">New Arrivals</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="
+                                        event.preventDefault();
+                                        setFilter(
+                                            document.querySelectorAll(
+                                                '.filter-tab',
+                                            )[3],
+                                            'sale',
+                                        );
+                                        document
+                                            .getElementById('products')
+                                            .scrollIntoView({
+                                                behavior: 'smooth',
+                                            });
+                                    ">On Sale</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="
+                                        event.preventDefault();
+                                        showToast(
+                                            'Use code READGIFT in your cart summary!',
+                                        );
+                                    "><span data-i18n="footer_gift_cards">Gift Cards</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4 data-i18n="footer_stationery">Stationery</h4>
+                        <ul>
+                            <li>
+                                <a href="FrontEnd/pages/stationery.html"><span data-i18n="footer_journals">Journals &amp; Notebooks</span></a>
+                            </li>
+                            <li>
+                                <a href="FrontEnd/pages/stationery.html"><span data-i18n="footer_planners">Planners &amp; Calendars</span></a>
+                            </li>
+                            <li>
+                                <a href="FrontEnd/pages/stationery.html"><span data-i18n="footer_pens">Pens &amp; Writing</span></a>
+                            </li>
+                            <li>
+                                <a href="FrontEnd/pages/stationery.html"><span data-i18n="footer_art">Art Supplies</span></a>
+                            </li>
+                            <li>
+                                <a href="FrontEnd/pages/stationery.html"><span data-i18n="footer_bags">Bags &amp; Totes</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4 data-i18n="footer_support">Support</h4>
+                        <ul>
+                            <li>
+                                <a href="#" onclick="
+                                        openSupport('track');
+                                        return false;
+                                    "><span data-i18n="footer_track">Track Order</span></a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="
+                                        openSupport('returns');
+                                        return false;
+                                    ">Returns</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="
+                                        openSupport('faq');
+                                        return false;
+                                    ">FAQs</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="
+                                        openSupport('contact');
+                                        return false;
+                                    ">Contact Us</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="
+                                        openSupport('privacy');
+                                        return false;
+                                    ">Privacy Policy</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4 data-i18n="footer_company">Company</h4>
+                        <ul>
+                            <li>
+                                <a href="#about" onclick="
+                                        document
+                                            .getElementById('about')
+                                            .scrollIntoView({
+                                                behavior: 'smooth',
+                                            });
+                                        return false;
+                                    ">About Us</a>
+                            </li>
+                            <li>
+                                <a href="FrontEnd/pages/refund.html">Returns &amp; Refunds</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="
+                                        event.preventDefault();
+                                        toggleTeamDrawer();
+                                    "><span data-i18n="btn_meet_team">Meet the Team</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /footer-cols-wrap -->
+            </div>
+            <!-- /footer-grid -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-inner">
+                    <span>© 2026
+                        <a href="#" onclick="
+                                event.preventDefault();
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            ">Readora™</a>. All rights reserved.</span>
+                    <span>School Project by
+                        <strong>404 Team Name Not Found</strong></span>
+                    <span>Contact:
+                        <a href="mailto:readora@example.com" style="color: var(--accent); text-decoration: none">readora@example.com</a></span>
+                </div>
+            </div>
+        </footer>
+
+        <button class="scroll-top" id="stb" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" aria-label="Back to top">
+            ↑
+        </button>
+
+        <!-- ══════════ CART DRAWER ══════════ -->
+        <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()" aria-hidden="true"></div>
+        <div class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping Cart">
+            <div class="cart-head">
+                <h3 data-i18n="cart_title">Shopping Cart</h3>
+                <div style="display: flex; align-items: center; gap: 0.6rem">
+                    <button class="drawer-clear-btn" onclick="clearCartConfirm()" title="Clear all items" aria-label="Clear all cart items">
+                        Clear All
+                    </button>
+                    <button class="cart-close" onclick="toggleCart()" aria-label="Close cart">
+                        ×
+                    </button>
+                </div>
+            </div>
+            <div class="cart-items" id="cart-items" aria-live="polite">
+                <div class="cart-empty">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.5" style="display: block; margin: 0 auto 0.5rem">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <p data-i18n="cart_empty">Your cart is empty</p>
+                    <button class="browse-btn" onclick="
+                            toggleCart();
+                            document
+                                .getElementById('products')
+                                .scrollIntoView({ behavior: 'smooth' });
+                        " data-i18n="btn_start_browsing">
+                        Start Browsing
+                    </button>
+                </div>
+            </div>
+            <div class="cart-footer">
+                <!-- Free shipping progress bar -->
+                <div id="cart-ship-progress" class="cart-ship-progress" style="display: none">
+                    <div class="csp-bar">
+                        <div class="csp-fill"></div>
+                    </div>
+                    <div class="csp-label"></div>
+                </div>
+
+                <!-- Promo code -->
+                <div class="promo-row">
+                    <div class="promo-input-wrap">
+                        <input class="promo-input" id="promo-input" type="text" placeholder="Promo code…" aria-label="Enter promo code" onkeydown="if (event.key === 'Enter') applyPromo();">
+                        <button class="promo-apply-btn" onclick="applyPromo()">
+                            Apply
+                        </button>
+                    </div>
+                    <div class="promo-msg" id="promo-msg"></div>
+                    <!-- Hidden element that stores active discount value -->
+                    <span id="cart-promo-applied" data-discount="0" style="display: none"></span>
+                </div>
+
+                <!-- Totals -->
+                <div class="cart-row">
+                    <span><span data-i18n="checkout_subtotal">Subtotal</span></span><span id="cart-sub">₱0</span>
+                </div>
+                <div class="cart-row" id="cart-discount-row" style="display: none; color: var(--accent)">
+                    <span><span data-i18n="cart_promo_discount">Promo discount</span></span><span id="cart-discount-amt"></span>
+                </div>
+                <div class="cart-row">
+                    <span><span data-i18n="checkout_shipping">Shipping</span></span><span id="cart-ship" style="color: #15803d">—</span>
+                </div>
+                <div class="cart-total-row">
+                    <span><span data-i18n="checkout_total">Total</span></span><strong id="cart-total">₱0</strong>
+                </div>
+                <button class="checkout-btn" onclick="openCheckout()" data-i18n="btn_proceed_checkout">
+                    Proceed to Checkout →
+                </button>
+                <p style="
+                        text-align: center;
+                        font-size: 0.75rem;
+                        color: var(--text-muted);
+                        margin-top: 0.75rem;
+                    ">
+                    Not satisfied with your order?
+                    <a href="FrontEnd/pages/refund.html" style="color: var(--accent); text-decoration: underline">View our Refund &amp; Returns Policy</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- ══════════ MODAL ══════════ -->
+        <div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)" role="dialog" aria-modal="true" aria-labelledby="modal-h-auth">
+            <div class="modal" id="modal">
+                <button class="modal-close" onclick="closeModal()" aria-label="Close">
+                    ×
+                </button>
+
+                <!-- AUTH -->
+                <div id="auth-panel">
+                    <h2 id="modal-h-auth" style="
+                            font-family: &quot;Playfair Display&quot;, serif;
+                            font-size: 1.62rem;
+                            font-weight: 800;
+                            margin-bottom: 0.28rem;
+                        ">
+                        Welcome back
+                    </h2>
+                    <p class="modal-sub" id="modal-sub">
+                        Sign in to access your library and orders.
+                    </p>
+                    <div class="modal-tabs">
+                        <button class="modal-tab active" id="tab-l" onclick="switchTab('login')">
+                            Login
+                        </button>
+                        <button class="modal-tab" id="tab-s" onclick="switchTab('signup')">
+                            Sign Up
+                        </button>
+                    </div>
+                    <div id="login-form">
+                        <div class="form-group">
+                            <label class="form-label" for="le">Email</label><input class="form-input" id="le" type="email" placeholder="you@example.com" onkeydown="
+                                    if (event.key === 'Enter') doLogin();
+                                " oninput="clearLoginErrors()">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lp">Password</label><input class="form-input" id="lp" type="password" placeholder="Your password" onkeydown="
+                                    if (event.key === 'Enter') doLogin();
+                                " oninput="clearLoginErrors()"><a href="#" class="modal-forgot" onclick="
+                                    event.preventDefault();
+                                    showForgotPassword();
+                                ">Forgot password?</a>
+                        </div>
+                        <div id="login-error" class="login-error" role="alert" aria-live="polite"></div>
+                        <div class="login-extras">
+                            <label class="remember-me"><input type="checkbox" id="remember-me">
+                                Remember me</label>
+                        </div>
+                        <button class="modal-btn" id="login-btn" onclick="doLogin()">
+                            Login to Account
+                        </button>
+                    </div>
+                    <div id="signup-form" style="display: none">
+                        <div class="form-group">
+                            <label class="form-label" for="sn">Full Name</label><input class="form-input" id="sn" type="text" placeholder="Juan dela Cruz" onkeydown="
+                                    if (event.key === 'Enter') doSignup();
+                                ">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="se">Email</label><input class="form-input" id="se" type="email" placeholder="you@example.com" onkeydown="
+                                    if (event.key === 'Enter') doSignup();
+                                ">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="sp">Password</label><input class="form-input" id="sp" type="password" placeholder="Create a strong password" onkeydown="
+                                    if (event.key === 'Enter') doSignup();
+                                ">
+                            <div class="pwd-strength-wrap" id="pwd-strength-wrap" style="display: none">
+                                <div class="pwd-strength-bar">
+                                    <div class="pwd-strength-fill" id="pwd-strength-fill"></div>
+                                </div>
+                                <span class="pwd-strength-label" id="pwd-strength-label"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone (optional)</label>
+                            <div style="display: flex; gap: 0.5rem">
+                                <select class="form-input" style="
+                                        width: auto;
+                                        flex-shrink: 0;
+                                        padding-right: 0.6rem;
+                                        cursor: pointer;
+                                    ">
+                                    <option value="+63">🇵🇭 +63</option>
+                                    <option value="+1">🇺🇸 +1</option>
+                                    <option value="+44">🇬🇧 +44</option>
+                                    <option value="+61">🇦🇺 +61</option>
+                                    <option value="+81">🇯🇵 +81</option>
+                                    <option value="+65">🇸🇬 +65</option>
+                                    <option value="+60">🇲🇾 +60</option>
+                                    <option value="+66">🇹🇭 +66</option>
+                                </select>
+                                <input class="form-input" type="tel" placeholder="9XX XXX XXXX" style="flex: 1">
+                            </div>
+                        </div>
+                        <button class="modal-btn" id="signup-btn" onclick="doSignup()">
+                            Create Account
+                        </button>
+                    </div>
+
+                    <div class="modal-divider">or continue with</div>
+                    <button class="google-signin-btn" onclick="showToast('Google sign-in coming soon!')" type="button" aria-label="Sign in with Google">
+                        <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true">
+                            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
+                            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
+                            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
+                            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+                        </svg>
+                        Continue with Google
+                    </button>
+                    <button class="apple-signin-btn" onclick="showToast('Apple sign-in coming soon!')" type="button" aria-label="Sign in with Apple">
+                        <svg width="18" height="18" viewBox="0 0 814 1000" aria-hidden="true" fill="currentColor">
+                            <path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-57.8-155.5-127.4C46 790.7 0 663 0 541.8c0-207.5 135.4-317.3 268.5-317.3 99.8 0 162.6 65.5 219.7 65.5 54.7 0 127.3-68.9 239.8-68.9 42.2.3 152.9 15.3 214.4 126.8zm-256.4-175c-10.1-48.5-32.2-100.4-68.2-140.8-39.1-43.9-92.9-77.6-147.6-77.6-3.2 0-6.4.3-9.6.6 2.6 54.7 24 107 60 148.9 41.6 48.1 96.5 80.7 165.4 69z"></path>
+                        </svg>
+                        Continue with Apple
+                    </button>
+
+                    <div class="modal-divider">or continue as guest</div>
+                    <button class="btn-outline" style="width: 100%; justify-content: center" onclick="continueAsGuest()">
+                        Continue Browsing without logging in
+                    </button>
+                </div>
+
+                <!-- CHECKOUT -->
+                <div id="checkout-panel" style="display: none">
+                    <h2 id="modal-h-checkout" style="
+                            font-family: &quot;Playfair Display&quot;, serif;
+                            font-size: 1.55rem;
+                            font-weight: 800;
+                            margin-bottom: 0.22rem;
+                        ">
+                        Checkout
+                    </h2>
+                    <p class="modal-sub" data-i18n="disclaimer_top">
+                        Complete your order — this is a placeholder only.
+                    </p>
+                    <div class="co-steps">
+                        <div class="co-step active" id="cst1">① Info</div>
+                        <div class="co-step" id="cst2">② Ship</div>
+                        <div class="co-step" id="cst3">③ Pay</div>
+                        <div class="co-step" id="cst4">④ Review</div>
+                    </div>
+
+                    <!-- Step 1 -->
+                    <div class="co-panel active" id="cp1">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">First Name</label><input class="form-input" id="checkout-fname" placeholder="Juan">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Last Name</label><input class="form-input" id="checkout-lname" placeholder="dela Cruz">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email</label><input class="form-input" id="checkout-email" type="email" placeholder="juan@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone</label>
+                            <div style="display: flex; gap: 0.5rem">
+                                <select class="form-input" id="phone-code" style="
+                                        width: auto;
+                                        flex-shrink: 0;
+                                        padding-right: 0.6rem;
+                                        cursor: pointer;
+                                    ">
+                                    <option value="+63">🇵🇭 +63</option>
+                                    <option value="+1">🇺🇸 +1</option>
+                                    <option value="+44">🇬🇧 +44</option>
+                                    <option value="+61">🇦🇺 +61</option>
+                                    <option value="+81">🇯🇵 +81</option>
+                                    <option value="+65">🇸🇬 +65</option>
+                                    <option value="+60">🇲🇾 +60</option>
+                                    <option value="+66">🇹🇭 +66</option>
+                                </select>
+                                <input id="checkout-phone" class="form-input" type="tel" placeholder="9XX XXX XXXX" style="flex: 1">
+                            </div>
+                        </div>
+                        <div class="step-btns">
+                            <button class="step-next" onclick="goStep(2)">
+                                Continue to Shipping →
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="co-panel" id="cp2">
+                        <div class="form-group">
+                            <label class="form-label"><span data-i18n="checkout_street">Street Address</span></label><input class="form-input" id="checkout-street" placeholder="123 Rizal St.">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">City</label><input class="form-input" id="checkout-city" placeholder="Quezon City">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Zip</label><input class="form-input" id="checkout-zip" placeholder="1100">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Province / Region</label><input class="form-input" id="checkout-province" placeholder="Metro Manila">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label"><span data-i18n="checkout_delivery_note">Delivery Note (optional)</span></label><input class="form-input" placeholder="Leave at gate…">
+                        </div>
+                        <div class="step-btns">
+                            <button class="step-back" onclick="goStep(1)">
+                                ← Back</button><button class="step-next" onclick="goStep(3)">
+                                Continue to Payment →
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="co-panel" id="cp3">
+                        <div class="payment-section">
+                            <h4 data-i18n="checkout_choose_payment"><span data-i18n="checkout_choose_payment">Choose Payment Method</span></h4>
+                            <div class="pay-methods">
+                                <div class="pay-opt" onclick="selectPay(this, 'gcash')">
+                                    <span class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                            <circle cx="12" cy="12" r="10" fill="#007DFF" opacity=".15"></circle>
+                                            <text x="12" y="16" text-anchor="middle" font-size="11" font-weight="800" fill="#007DFF">
+                                                G
+                                            </text>
+                                        </svg></span>GCash
+                                </div>
+                                <div class="pay-opt" onclick="selectPay(this, 'maya')">
+                                    <span class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                            <circle cx="12" cy="12" r="10" fill="#6C2DC7" opacity=".15"></circle>
+                                            <text x="12" y="16" text-anchor="middle" font-size="11" font-weight="800" fill="#6C2DC7">
+                                                M
+                                            </text>
+                                        </svg></span>Maya
+                                </div>
+                                <div class="pay-opt selected" onclick="selectPay(this, 'card')">
+                                    <span class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                                            <rect x="1" y="4" width="22" height="16" rx="3" ry="3"></rect>
+                                            <line x1="1" y1="10" x2="23" y2="10"></line></svg></span>Credit Card
+                                </div>
+                                <div class="pay-opt" onclick="selectPay(this, 'cod')">
+                                    <span class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                                            <rect x="2" y="7" width="20" height="14" rx="2"></rect>
+                                            <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path>
+                                            <line x1="12" y1="12" x2="12" y2="16"></line>
+                                            <line x1="10" y1="14" x2="14" y2="14"></line></svg></span>Cash on Delivery
+                                </div>
+                                <div class="pay-opt" onclick="selectPay(this, 'bank')">
+                                    <span class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                                            <line x1="3" y1="22" x2="21" y2="22"></line>
+                                            <line x1="6" y1="18" x2="6" y2="11"></line>
+                                            <line x1="10" y1="18" x2="10" y2="11"></line>
+                                            <line x1="14" y1="18" x2="14" y2="11"></line>
+                                            <line x1="18" y1="18" x2="18" y2="11"></line>
+                                            <polygon points="12 2 20 7 4 7"></polygon></svg></span>Bank Transfer
+                                </div>
+                                <div class="pay-opt" onclick="selectPay(this, '711')">
+                                    <span class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                            <polyline points="9 22 9 12 15 12 15 22"></polyline></svg></span>7-Eleven
+                                </div>
+                            </div>
+                            <div class="card-fields show" id="card-fields">
+                                <div class="form-group">
+                                    <label class="form-label"><span data-i18n="checkout_cardholder">Cardholder Name</span></label><input class="form-input" placeholder="Juan dela Cruz">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label"><span data-i18n="checkout_card_number">Card Number</span></label><input class="form-input" placeholder="1234 5678 9012 3456" maxlength="19">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label"><span data-i18n="checkout_expiry">Expiry</span></label><input class="form-input" placeholder="MM / YY" maxlength="7">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label"><span data-i18n="checkout_cvv">CVV</span></label><input class="form-input" type="password" placeholder="123" maxlength="4">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="other-pay-msg" id="opm"></div>
+                        </div>
+                        <div class="step-btns">
+                            <button class="step-back" onclick="goStep(2)">
+                                ← Back</button><button class="step-next" onclick="goStep(4)">
+                                Review Order →
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="co-panel" id="cp4">
+                        <div class="order-summary">
+                            <h4>Order Summary</h4>
+                            <div id="review-items"></div>
+                            <div class="order-line">
+                                <span><span data-i18n="checkout_shipping">Shipping</span></span><span style="color: #15803d">FREE</span>
+                            </div>
+                            <div class="order-line">
+                                <span><span data-i18n="checkout_total">Total</span></span><span id="review-total" style="color: var(--accent)">₱0</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Gift Card or Promo Code</label>
+                            <div style="display: flex; gap: 0.5rem">
+                                <input id="checkout-gift-input" class="form-input" placeholder="Enter code (e.g. READ_GIFT_500)" style="flex: 1" onkeydown="
+                                        if (event.key === 'Enter')
+                                            applyGiftCard();
+                                    ">
+                                <button id="checkout-gift-btn" class="step-next" style="
+                                        flex: none;
+                                        height: 41px;
+                                        padding: 0 1rem;
+                                        min-width: 85px;
+                                        transition: opacity 0.2s;
+                                    " onclick="applyGiftCard()">
+                                    Apply
+                                </button>
+                            </div>
+                            <div id="checkout-gift-msg" class="promo-msg"></div>
+                        </div>
+                        <div class="step-btns">
+                            <button class="step-back" onclick="goStep(3)">
+                                ← Back</button><button class="step-next" onclick="placeOrder()">
+                                Place Order ✓
+                            </button>
+                        </div>
+                        <p style="
+                                text-align: center;
+                                font-size: 0.75rem;
+                                color: var(--text-muted);
+                                margin-top: 1rem;
+                                line-height: 1.4;
+                            ">
+                            By placing your order you agree to our Terms. Not
+                            happy? We've got you covered —
+                            <a href="FrontEnd/pages/refund.html" style="
+                                    color: var(--accent);
+                                    text-decoration: underline;
+                                ">Refund Policy</a>
+                        </p>
+                    </div>
+
+                    <!-- Step 5 — Order Confirmation -->
+                    <div class="co-panel" id="cp5">
+                        <div class="confirm-screen">
+                            <div class="confirm-check" aria-hidden="true">
+                                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            <h3 class="confirm-title">Order Confirmed!</h3>
+                            <p class="confirm-sub">
+                                Thank you for your order. This is a mock
+                                checkout — no real transaction was processed.
+                            </p>
+
+                            <div class="confirm-card">
+                                <div class="confirm-meta-row">
+                                    <div class="confirm-meta">
+                                        <div class="confirm-meta-label">
+                                            Order ID
+                                        </div>
+                                        <div class="confirm-meta-val" id="order-id">
+                                            #RA-000000
+                                        </div>
+                                    </div>
+                                    <div class="confirm-meta">
+                                        <div class="confirm-meta-label">
+                                            Date
+                                        </div>
+                                        <div class="confirm-meta-val" id="order-date">
+                                            —
+                                        </div>
+                                    </div>
+                                    <div class="confirm-meta">
+                                        <div class="confirm-meta-label">
+                                            Total Paid
+                                        </div>
+                                        <div class="confirm-meta-val accent" id="order-total-confirm">
+                                            ₱0
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="confirm-divider"></div>
+                                <div class="confirm-items-label">
+                                    Items ordered
+                                </div>
+                                <div id="confirm-items" class="confirm-items-list"></div>
+                            </div>
+
+                            <div class="confirm-delivery-note">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                </svg>
+                                Estimated delivery:
+                                <strong>3–5 business days</strong>
+                            </div>
+                            <p class="confirm-email-note">
+                                A confirmation email would normally be sent to
+                                your inbox.
+                            </p>
+                        </div>
+                        <button class="step-next" onclick="closeModal()" style="width: 100%; margin-top: 1.1rem">
+                            Continue Shopping
+                        </button>
+                        <p style="
+                                text-align: center;
+                                font-size: 0.8rem;
+                                color: var(--text-muted);
+                                margin-top: 0.9rem;
+                            ">
+                            Changed your mind? You have 7 days to request a
+                            return.
+                            <a href="FrontEnd/pages/refund.html" style="
+                                    color: var(--accent);
+                                    text-decoration: underline;
+                                    font-weight: 500;
+                                ">View Refund Policy →</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════════ SETTINGS MODAL ══════════ -->
+        <div class="settings-overlay" id="settings-overlay" onclick="closeSettingsOutside(event)">
+            <div class="settings-modal" id="settings-modal">
+                <button class="settings-close" onclick="discardSettings()" aria-label="Close settings">
+                    ×
+                </button>
+                <h2 style="display: flex; align-items: center; gap: 0.5rem">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" aria-hidden="true">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                    <span data-i18n="settings_title">Settings</span>
+                </h2>
+                <p class="modal-sub">Personalise your Readora experience.</p>
+
+                <!-- Profile -->
+                <div class="settings-section">
+                    <div class="settings-section-title" style="display: flex; align-items: center; gap: 0.4rem">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        Profile
+                    </div>
+                    <div class="settings-row">
+                        <span>Display Name</span>
+                        <input type="text" id="profile-name" placeholder="Your Name" style="padding: 0.3rem 0.5rem; border-radius: 4px; border: 1px solid var(--border); background: var(--bg-primary); color: var(--text-primary); font-family: inherit; font-size: 0.85rem;">
+                    </div>
+                    <div class="settings-row">
+                        <span>Phone Number</span>
+                        <input type="text" id="profile-phone" placeholder="09123456789" style="padding: 0.3rem 0.5rem; border-radius: 4px; border: 1px solid var(--border); background: var(--bg-primary); color: var(--text-primary); font-family: inherit; font-size: 0.85rem;">
+                    </div>
+                </div>
+
+                <!-- Appearance -->
+                <div class="settings-section">
+                    <div class="settings-section-title" style="display: flex; align-items: center; gap: 0.4rem">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+                        </svg>
+                        Appearance
+                    </div>
+                    <div class="settings-row">
+                        <div>
+                            <div class="settings-row-label">Dark Mode</div>
+                            <div class="settings-row-sub">
+                                Easier on the eyes at night
+                            </div>
+                        </div>
+                        <button class="stg-toggle" id="dark-toggle" onclick="settingsToggleTheme(this)" aria-label="Toggle dark mode">
+                            <div class="knob"></div>
+                        </button>
+                    </div>
+                    <div class="settings-row">
+                        <div>
+                            <div class="settings-row-label">Font Size</div>
+                            <div class="settings-row-sub">
+                                Adjust reading comfort
+                            </div>
+                        </div>
+                        <select class="settings-select" id="font-size-pref" onchange="applyFontSize(this.value)">
+                            <option value="small" data-i18n="settings_font_small">Small</option>
+                            <option value="medium" selected="" data-i18n="settings_font_medium">Medium</option>
+                            <option value="large" data-i18n="settings_font_large">Large</option>
+                        </select>
+                    </div>
+                    <div class="settings-row">
+                        <div>
+                            <div class="settings-row-label">Accent Colour</div>
+                            <div class="settings-row-sub">
+                                Brand highlight colour
+                            </div>
+                        </div>
+                        <select class="settings-select" id="accent-pref" onchange="applyAccent(this.value)">
+                            <option value="crimson" selected="">● Crimson</option>
+                            <option value="ocean">● Ocean</option>
+                            <option value="forest">● Forest</option>
+                            <option value="gold">● Gold</option>
+                            <option value="purple">● Purple</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Notifications -->
+                <div class="settings-section">
+                    <div class="settings-section-title" style="display: flex; align-items: center; gap: 0.4rem">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                        Notifications
+                    </div>
+                    <p style="
+                            font-size: 0.75rem;
+                            color: var(--text-muted);
+                            margin-bottom: 0.9rem;
+                            line-height: 1.55;
+                        " data-i18n="settings_notifications_sub">
+                        These preferences control which email updates you
+                        receive from Readora — the same channels as the
+                        newsletter subscription below.
+                    </p>
+                    <div class="settings-row">
+                        <div>
+                            <div class="settings-row-label">New Arrivals</div>
+                            <div class="settings-row-sub">
+                                Get notified when new books arrive
+                            </div>
+                        </div>
+                        <button class="stg-toggle on" onclick="this.classList.toggle('on')" aria-label="Toggle new arrivals">
+                            <div class="knob"></div>
+                        </button>
+                    </div>
+                    <div class="settings-row">
+                        <div>
+                            <div class="settings-row-label">Sale Alerts</div>
+                            <div class="settings-row-sub">
+                                Flash sales and discount announcements
+                            </div>
+                        </div>
+                        <button class="stg-toggle on" onclick="this.classList.toggle('on')" aria-label="Toggle sale alerts">
+                            <div class="knob"></div>
+                        </button>
+                    </div>
+                    <div class="settings-row">
+                        <div>
+                            <div class="settings-row-label">Order Updates</div>
+                            <div class="settings-row-sub">
+                                Shipping and delivery status
+                            </div>
+                        </div>
+                        <button class="stg-toggle on" onclick="this.classList.toggle('on')" aria-label="Toggle order updates">
+                            <div class="knob"></div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Shopping -->
+                <div class="settings-section">
+                    <div class="settings-section-title" style="display: flex; align-items: center; gap: 0.4rem">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        Shopping
+                    </div>
+                    <div class="settings-row">
+                        <div>
+                            <div class="settings-row-label">
+                                Default Currency
+                            </div>
+                            <div class="settings-row-sub">
+                                Display prices in
+                            </div>
+                        </div>
+                        <select class="settings-select">
+                            <option value="php" selected="">🇵🇭 PHP ₱</option>
+                            <option value="usd">🇺🇸 USD $</option>
+                            <option value="gbp">🇬🇧 GBP £</option>
+                        </select>
+                    </div>
+                    <div class="settings-row">
+                        <div>
+                            <div class="settings-row-label">Show Ratings</div>
+                            <div class="settings-row-sub">
+                                Display star ratings on product cards
+                            </div>
+                        </div>
+                        <button class="stg-toggle on" onclick="this.classList.toggle('on')" aria-label="Toggle ratings">
+                            <div class="knob"></div>
+                        </button>
+                    </div>
+                    <div class="settings-row">
+                        <div>
+                            <div class="settings-row-label">Save Wishlist</div>
+                            <div class="settings-row-sub">
+                                Remember wishlist between sessions
+                            </div>
+                        </div>
+                        <button class="stg-toggle" onclick="this.classList.toggle('on')" aria-label="Toggle wishlist saving">
+                            <div class="knob"></div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Language & Region -->
+                <div class="settings-section">
+                    <div class="settings-section-title" style="display: flex; align-items: center; gap: 0.4rem">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                        Language &amp; Region
+                    </div>
+                    <div class="settings-row">
+                        <div>
+                            <div class="settings-row-label">Language</div>
+                            <div class="settings-row-sub">
+                                Changes interface text throughout the site
+                            </div>
+                        </div>
+                        <select class="settings-select" id="lang-select" onchange="applyTranslations(this.value, true)">
+                            <option value="en" selected="">English</option>
+                            <option value="fil">Filipino</option>
+                            <option value="es">Español</option>
+                        </select>
+                    </div>
+                    <div class="settings-row">
+                        <div>
+                            <div class="settings-row-label">
+                                Default Country Code
+                            </div>
+                            <div class="settings-row-sub">
+                                Used in checkout phone fields
+                            </div>
+                        </div>
+                        <select class="settings-select" id="default-country-code">
+                            <option value="+63" selected="">🇵🇭 +63</option>
+                            <option value="+1">🇺🇸 +1</option>
+                            <option value="+44">🇬🇧 +44</option>
+                            <option value="+61">🇦🇺 +61</option>
+                            <option value="+65">🇸🇬 +65</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="settings-save" onclick="saveSettings()" data-i18n="btn_save_prefs">
+                    Save Preferences ✓
+                </button>
+            </div>
+        </div>
+
+        <!-- ══════════ FAQ FLOATING BUTTON ══════════ -->
+        <button class="faq-float-btn" onclick="openSupport('faq')" aria-label="FAQ" title="Frequently Asked Questions">
+            FAQ
+        </button>
+
+        <!-- ══════════ QUICK VIEW MODAL ══════════ -->
+        <div class="qv-overlay" id="qv-overlay" onclick="if (event.target === this) closeQV();">
+            <div class="qv-modal" id="qv-modal">
+                <button class="qv-close" onclick="closeQV()" aria-label="Close" style="z-index: 20;">
+                    ×
+                </button>
+                <div id="qv-spinner-wrap" style="display: none; position: absolute; inset: 0; background: var(--modal-bg); z-index: 10; align-items: center; justify-content: center; border-radius: 20px;">
+                    <div class="rd-spinner"></div>
+                </div>
+                <div class="qv-cover" id="qv-cover">
+                    <img id="qv-img" src="" alt="">
+                    <div class="qv-cover-rating" id="qv-cover-rating"></div>
+                    <div class="qv-details-table">
+                        <div class="qv-detail-row">
+                            <span class="qv-detail-label">Pages</span>
+                            <span class="qv-detail-val" id="qv-pages">—</span>
+                        </div>
+                        <div class="qv-detail-row">
+                            <span class="qv-detail-label">Published</span>
+                            <span class="qv-detail-val" id="qv-year">—</span>
+                        </div>
+                        <div class="qv-detail-row">
+                            <span class="qv-detail-label" data-i18n="filter_genre">Genre</span>
+                            <span class="qv-detail-val" id="qv-genre">—</span>
+                        </div>
+                    </div>
+                    <div class="qv-cover-actions">
+                        <button class="qv-cover-action-btn" id="qv-share-btn" title="Share this book">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <circle cx="18" cy="5" r="3"></circle>
+                                <circle cx="6" cy="12" r="3"></circle>
+                                <circle cx="18" cy="19" r="3"></circle>
+                                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                            </svg>
+                            Share
+                        </button>
+                    </div>
+                </div>
+                <div class="qv-body">
+                    <div class="qv-cat" id="qv-cat"></div>
+                    <div class="qv-badge" id="qv-badge" style="display: none"></div>
+                    <div class="qv-title" id="qv-title"></div>
+                    <div class="qv-author" id="qv-author"></div>
+                    <div class="qv-stars" id="qv-stars"></div>
+                    <div class="qv-desc" id="qv-desc"></div>
+                    <div class="qv-formats">
+                        <button class="qv-fmt-btn active">Paperback</button>
+                        <button class="qv-fmt-btn" onclick="
+                                this.parentElement
+                                    .querySelectorAll('.qv-fmt-btn')
+                                    .forEach((b) =>
+                                        b.classList.remove('active'),
+                                    );
+                                this.classList.add('active');
+                            ">
+                            Hardcover
+                        </button>
+                        <button class="qv-fmt-btn" onclick="
+                                this.parentElement
+                                    .querySelectorAll('.qv-fmt-btn')
+                                    .forEach((b) =>
+                                        b.classList.remove('active'),
+                                    );
+                                this.classList.add('active');
+                            ">
+                            E-Book
+                        </button>
+                    </div>
+                    <div class="qv-stock" id="qv-stock">
+                        <!-- populated by openQV() -->
+                    </div>
+                    <div class="qv-price-row">
+                        <span class="qv-price" id="qv-price"></span>
+                        <span class="qv-old-price" id="qv-old"></span>
+                        <span class="qv-save-badge" id="qv-save"></span>
+                    </div>
+                    <!-- Quantity selector -->
+                    <div class="qv-qty-row">
+                        <span class="qv-qty-label">Quantity</span>
+                        <div class="qv-qty-ctrl">
+                            <button class="qv-qty-btn" id="qv-qty-minus" aria-label="Decrease quantity">
+                                −
+                            </button>
+                            <span class="qv-qty-val" id="qv-qty-val">1</span>
+                            <button class="qv-qty-btn" id="qv-qty-plus" aria-label="Increase quantity">
+                                +
+                            </button>
+                        </div>
+                    </div>
+                    <div class="qv-actions">
+                        <button class="qv-add-btn" id="qv-add-btn">
+                            Add to Cart
+                        </button>
+                        <button class="qv-wish-btn" id="qv-wish-btn">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                            Wishlist
+                        </button>
+                    </div>
+                    <div style="
+                            font-size: 0.8rem;
+                            color: var(--text-muted);
+                            margin-top: 0.6rem;
+                            margin-bottom: 1rem;
+                            display: flex;
+                            align-items: center;
+                            gap: 0.4rem;
+                        ">
+                        🛡️ 7-Day Returns •
+                        <a href="FrontEnd/pages/refund.html" style="
+                                color: var(--accent);
+                                text-decoration: underline;
+                            ">Free for damaged items</a>
+                    </div>
+                    <!-- Rating Breakdown & Reviews -->
+                    <div class="qv-reviews-section" id="qv-reviews-section" style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+                        <h4>Reviews &amp; Ratings</h4>
+                        <div class="qv-rating-breakdown" id="qv-rating-breakdown" style="margin-bottom: 1.5rem;">
+                            <!-- Populated by JS -->
+                        </div>
+                        <div class="qv-user-reviews" id="qv-user-reviews" style="display:flex; flex-direction:column; gap:1rem; margin-bottom: 2rem;">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Write a Review (per-book) -->
+                    <div class="qv-write-review-card" id="qv-write-review-card">
+                        <div class="qv-write-review" id="qv-write-review">
+                            <h4 style="margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
+                                <span>✍️ Write a Review</span>
+                                <span id="qv-wr-star-label" style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);"></span>
+                            </h4>
+                            <div class="qv-wr-stars" id="qv-wr-stars" style="margin-bottom: 1.2rem; display: flex; gap: 4px;">
+                                <button class="qv-wr-star" data-val="1" onclick="setQvReviewRating(1)" onmouseover="hoverQvReviewRating(1)" onmouseout="resetQvReviewRating()">★</button>
+                                <button class="qv-wr-star" data-val="2" onclick="setQvReviewRating(2)" onmouseover="hoverQvReviewRating(2)" onmouseout="resetQvReviewRating()">★</button>
+                                <button class="qv-wr-star" data-val="3" onclick="setQvReviewRating(3)" onmouseover="hoverQvReviewRating(3)" onmouseout="resetQvReviewRating()">★</button>
+                                <button class="qv-wr-star" data-val="4" onclick="setQvReviewRating(4)" onmouseover="hoverQvReviewRating(4)" onmouseout="resetQvReviewRating()">★</button>
+                                <button class="qv-wr-star" data-val="5" onclick="setQvReviewRating(5)" onmouseover="hoverQvReviewRating(5)" onmouseout="resetQvReviewRating()">★</button>
+                            </div>
+                            <div class="qv-wr-form-row" style="display:flex; gap:12px; align-items:flex-start;">
+                                <div class="qv-wr-avatar" id="qv-wr-avatar" style="width: 44px; height: 44px; border-radius: 50%; background: var(--bg-secondary); flex-shrink: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; font-size: 0.9rem; color: var(--text-muted); border: 2px solid var(--border);">
+                                    ?
+                                </div>
+                                <div style="flex: 1; display: flex; flex-direction: column; gap: 8px;">
+                                    <input class="qv-wr-input" id="qv-wr-name" type="text" placeholder="Your name" maxlength="50" style="width: 100%; box-sizing: border-box; padding: 0.6rem; border: 1px solid var(--border); border-radius: 6px;">
+                                    <textarea class="qv-wr-textarea" id="qv-wr-text" placeholder="What did you think of this book?" maxlength="300" rows="3" style="width: 100%; box-sizing: border-box; padding: 0.6rem; border: 1px solid var(--border); border-radius: 6px; resize: vertical;"></textarea>
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <span id="qv-wr-char" style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">0 / 300</span>
+                                        <button class="qv-wr-submit" id="qv-wr-submit" onclick="submitQvReview()">
+                                            Post Review
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Phase 6: Scrollable Customer Testimonials -->
+                    <div class="qv-testi-section">
+                        <div class="qv-testi-title">Customer Testimonials</div>
+                        <div class="qv-testi-scroll" id="qv-testi-scroll" aria-label="Customer testimonials"></div>
+                    </div>
+                    <!-- You Might Also Like -->
+                    <div class="qv-also-like" id="qv-also-like" style="display: none">
+                        <h4 class="qv-also-title">You might also like</h4>
+                        <div class="qv-also-row" id="qv-also-row"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════════ TEAM DRAWER (Phase 2) ══════════ -->
+        <div class="wishlist-overlay" id="team-overlay" onclick="toggleTeamDrawer()" aria-hidden="true"></div>
+        <div class="wishlist-drawer team-drawer" id="team-drawer" role="dialog" aria-modal="true" aria-label="Meet the Team">
+            <div class="cart-head">
+                <h3><span data-i18n="btn_meet_team">Meet the Team</span></h3>
+                <button class="cart-close" onclick="toggleTeamDrawer()" aria-label="Close team drawer">
+                    ×
+                </button>
+            </div>
+            <div class="team-drawer-body">
+                <p class="team-drawer-sub">
+                    The team behind Readora™ — 4 people, 1 shared love of books.
+                </p>
+                <div class="team-drawer-grid">
+                    <div class="team-drawer-card">
+                        <img src="https://ui-avatars.com/api/?name=Ethan+Gacud&amp;background=C0392B&amp;color=fff&amp;size=128&amp;font-size=0.4&amp;bold=true" alt="Ethan McClarence P. Gacud" class="team-drawer-avatar" loading="lazy">
+                        <div class="team-drawer-info">
+                            <div class="team-drawer-name">
+                                Ethan McClarence P. Gacud
+                            </div>
+                            <div class="team-drawer-role">
+                                Team Leader &amp; Lead Developer
+                            </div>
+                            <div class="team-drawer-bio">
+                                Leads the team and built the entire Readora
+                                platform from the ground up — designing every
+                                interaction, writing every line of code, and
+                                shipping every feature.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-drawer-card">
+                        <img src="https://ui-avatars.com/api/?name=John+Paul&amp;background=2563EB&amp;color=fff&amp;size=128&amp;font-size=0.4&amp;bold=true" alt="John Paul Caalim" class="team-drawer-avatar" loading="lazy">
+                        <div class="team-drawer-info">
+                            <div class="team-drawer-name">John Paul Caalim</div>
+                            <div class="team-drawer-role">
+                                Information Architect
+                            </div>
+                            <div class="team-drawer-bio">
+                                Designed the site's content structure and user
+                                flows, ensuring every page guides readers
+                                naturally from browse to checkout.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-drawer-card">
+                        <img src="https://ui-avatars.com/api/?name=Josh+Gargalicana&amp;background=059669&amp;color=fff&amp;size=128&amp;font-size=0.4&amp;bold=true" alt="Josh Raphael Gargalicana" class="team-drawer-avatar" loading="lazy">
+                        <div class="team-drawer-info">
+                            <div class="team-drawer-name">
+                                Josh Raphael Gargalicana
+                            </div>
+                            <div class="team-drawer-role">Content Manager</div>
+                            <div class="team-drawer-bio">
+                                Curates the book catalogue, writes product
+                                descriptions, and keeps the Readora collection
+                                fresh with new arrivals and curated picks.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-drawer-card">
+                        <img src="https://ui-avatars.com/api/?name=Gian+Mangulabnan&amp;background=7C3AED&amp;color=fff&amp;size=128&amp;font-size=0.4&amp;bold=true" alt="Gian G. Mangulabnan" class="team-drawer-avatar" loading="lazy">
+                        <div class="team-drawer-info">
+                            <div class="team-drawer-name">
+                                Gian G. Mangulabnan
+                            </div>
+                            <div class="team-drawer-role">
+                                UX &amp; UI Designer
+                            </div>
+                            <div class="team-drawer-bio">
+                                Crafted Readora's visual identity — from the
+                                colour palette and typography to every card,
+                                button, and micro-animation you see on screen.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════════ WISHLIST DRAWER ══════════ -->
+        <div class="wishlist-overlay" id="wishlist-overlay" onclick="toggleWishlist()" aria-hidden="true"></div>
+        <div class="wishlist-drawer" id="wishlist-drawer" role="dialog" aria-modal="true" aria-label="Wishlist">
+            <div class="cart-head">
+                <h3 data-i18n="nav_wishlist">My Wishlist</h3>
+                <div style="display: flex; align-items: center; gap: 0.6rem">
+                    <button class="drawer-clear-btn" onclick="clearWishlistConfirm()" title="Clear all items" aria-label="Clear all wishlist items">
+                        Clear All
+                    </button>
+                    <button class="cart-close" onclick="toggleWishlist()" aria-label="Close wishlist">
+                        ×
+                    </button>
+                </div>
+            </div>
+            <div style="
+                    background: linear-gradient(
+                        135deg,
+                        var(--accent-light) 0%,
+                        transparent 100%
+                    );
+                    padding: 0.7rem 1.2rem;
+                    border-bottom: 1px solid var(--border);
+                    display: flex;
+                    align-items: center;
+                    gap: 0.6rem;
+                ">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--accent)" stroke="none" aria-hidden="true">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <span style="
+                        font-size: 0.75rem;
+                        color: var(--accent);
+                        font-weight: 600;
+                        letter-spacing: 0.3px;
+                    ">Items you love — saved for later</span>
+            </div>
+            <div class="cart-items" id="wishlist-items" aria-live="polite">
+                <div class="wishlist-empty">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.5" aria-hidden="true">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    <p data-i18n="wishlist_empty">Your wishlist is empty</p>
+                    <button class="browse-btn" onclick="
+                            toggleWishlist();
+                            document
+                                .getElementById('products')
+                                .scrollIntoView({ behavior: 'smooth' });
+                        ">
+                        Start Browsing
+                    </button>
+                </div>
+            </div>
+            <div class="cart-footer" style="padding: 1rem 1.2rem; border-top: 1px solid var(--border); background: var(--bg-card);">
+                <button class="checkout-btn" onclick="addAllWishlistToCart()" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: var(--accent); color: white; padding: 0.75rem; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; transition: background 0.2s; font-family: var(--font-body);" onmouseover="this.style.background='var(--accent-hover)'" onmouseout="this.style.background='var(--accent)'" data-i18n="wishlist_add_all">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    Add All to Cart
+                </button>
+            </div>
+        </div>
+
+        <!-- ══════════ SUPPORT MODALS ══════════ -->
+        <div class="support-overlay" id="support-overlay" onclick="if (event.target === this) closeSupport();">
+            <div class="support-modal" id="support-modal">
+                <button class="support-close" onclick="closeSupport()" aria-label="Close">
+                    ×
+                </button>
+                <div id="support-content"></div>
+            </div>
+        </div>
+
+        <!-- TOAST -->
+        <div class="toast" id="toast" role="status" aria-live="polite">
+            <span class="t-chk" aria-hidden="true">✓</span>
+            <span id="toast-msg"></span>
+        </div>
+
+        <!-- ══════════ HOVER QUICK VIEW PANEL ══════════ -->
+        <div id="hqv-panel" class="hqv-panel" role="tooltip" aria-hidden="true">
+            <div class="hqv-inner">
+                <img id="hqv-img" src="" alt="" class="hqv-img">
+                <div class="hqv-info">
+                    <div class="hqv-cat" id="hqv-cat"></div>
+                    <div class="hqv-title" id="hqv-title"></div>
+                    <div class="hqv-author" id="hqv-author"></div>
+                    <div class="hqv-stars" id="hqv-stars"></div>
+                    <div class="hqv-desc" id="hqv-desc"></div>
+                    <div class="hqv-footer">
+                        <span class="hqv-price" id="hqv-price"></span>
+                        <button class="hqv-cart-btn" id="hqv-cart-btn">
+                            + Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="hqv-arrow"></div>
+        </div>
+
+        <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+        <script src="FrontEnd/js/translations.js"></script>
+        <script src="FrontEnd/js/script.js"></script>
+
+        <!-- ══════════ CLEAR MODAL (Cart & Wishlist) ══════════ -->
+        <div id="clear-modal-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);backdrop-filter:blur(4px);z-index:9999;align-items:center;justify-content:center;padding:1.5rem;">
+            <div style="background:var(--bg-card,#fff);border-radius:16px;border:1px solid var(--border,#e5e5e5);padding:2rem 1.75rem 1.5rem;max-width:360px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.25);">
+                <div style="width:52px;height:52px;border-radius:50%;background:rgba(192,57,43,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C0392B" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14H6L5 6"></path><path d="M10 11v6"></path><path d="M14 11v6"></path><path d="M9 6V4h6v2"></path></svg>
+                </div>
+                <p id="clear-modal-title" style="font-size:17px;font-weight:700;color:var(--text-primary,#1a1a1a);margin:0 0 0.4rem;font-family:'Playfair Display',serif;"></p>
+                <p id="clear-modal-msg" style="font-size:14px;color:var(--text-muted,#888);margin:0 0 1.75rem;line-height:1.5;"></p>
+                <div style="display:flex;gap:10px;">
+                    <button onclick="closeClearModal()" style="flex:1;padding:0.65rem 1rem;border-radius:10px;border:1px solid var(--border,#e5e5e5);background:var(--bg-secondary,#f5f5f5);font-size:14px;font-weight:500;color:var(--text-primary,#1a1a1a);cursor:pointer;font-family:inherit;transition:opacity .15s"><span data-i18n="btn_cancel">Cancel</span></button>
+                    <button id="clear-modal-confirm-btn" style="flex:1;padding:0.65rem 1rem;border-radius:10px;border:none;background:#C0392B;color:#fff;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;transition:opacity .15s"><span data-i18n="btn_clear_all">Clear all</span></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Order History Modal -->
+        <div class="support-overlay" id="order-history-overlay" onclick="if (event.target === this) closeOrderHistory();">
+            <div class="support-modal" id="order-history-modal" style="max-width: 600px; padding: 2rem;">
+                <button class="support-close" onclick="closeOrderHistory()" aria-label="Close Order History">x</button>
+                <h2 style="margin-bottom: 0.5rem;">Order History</h2>
+                <p class="modal-sub" style="margin-bottom: 1.5rem;">View your past orders and their status.</p>
+                <div id="order-history-content" style="max-height: 60vh; overflow-y: auto;">
+                    <!-- Orders will be injected here -->
+                </div>
+            </div>
+        </div>
+    
+
+</body></html>

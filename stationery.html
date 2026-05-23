@@ -1,0 +1,2533 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <script>
+        /* Restore saved theme immediately to avoid flash */
+        (function () {
+            const t = localStorage.getItem("ra-theme");
+            if (t === "dark")
+                document.documentElement.setAttribute("data-theme", "dark");
+        })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stationery & Gifts — Readora™</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23C0392B'/%3E%3Cpath d='M22 20h24a14 14 0 0 1 14 14v46a10 10 0 0 0-10-10H22z' fill='%23fff' opacity='.95'/%3E%3Cpath d='M78 20H54a14 14 0 0 0-14 14v46a10 10 0 0 1 10-10h28z' fill='%23fff' opacity='.75'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --bg-primary: #f5f0e8;
+            --bg-secondary: #ede7d9;
+            --bg-card: #ffffff;
+            --bg-nav: rgba(245, 240, 232, 0.96);
+            --accent: #c0392b;
+            --accent-hover: #a93226;
+            --accent-light: #fdecea;
+            --text-primary: #1a1a1a;
+            --text-muted: #5a5a5a;
+            --border: #d4c9b8;
+            --shadow: rgba(0, 0, 0, 0.07);
+            --shadow-lg: rgba(0, 0, 0, 0.13);
+            --product-cover: #ede7d9;
+            --footer-bg: #1c1a17;
+            --footer-text: #e0d8cc;
+            --footer-muted: #857e76;
+            --star-orange: #f4a261;
+            --footer-border: #2e2a24;
+            --input-bg: #ffffff;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #111111;
+            --bg-secondary: #1c1c1c;
+            --bg-card: #242424;
+            --bg-nav: rgba(17, 17, 17, 0.96);
+            --accent: #e55b4d;
+            --accent-hover: #f06a5c;
+            --accent-light: #2d1410;
+            --text-primary: #f0ede8;
+            --text-muted: #9a9490;
+            --border: #353535;
+            --shadow: rgba(0, 0, 0, 0.35);
+            --shadow-lg: rgba(0, 0, 0, 0.55);
+            --product-cover: #1c1c1c;
+            --footer-bg: #0a0a0a;
+            --footer-text: #e0d8cc;
+            --footer-muted: #605c58;
+            --footer-border: #1e1e1e;
+            --star-orange: #f4a261;
+            --input-bg: #1c1c1c;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--bg-nav);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 2rem;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .nav-logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-logo {
+            font-family: "Playfair Display", serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-logo span {
+            color: var(--accent);
+        }
+
+        .nav-back {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg-card);
+            transition: all 0.2s;
+        }
+
+        .nav-back:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: var(--accent-light);
+        }
+
+        /* ── PROMO CODES ── */
+        .promo-section {
+            margin: 2rem auto;
+            max-width: 1200px;
+            padding: 0 2rem;
+        }
+
+        .promo-box {
+            border: 1.5px dashed var(--accent);
+            border-radius: 14px;
+            padding: 1.2rem 1.5rem;
+            background: var(--accent-light);
+        }
+
+        .promo-box h4 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .promo-codes {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .promo-chip {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .promo-chip:hover {
+            border-color: var(--accent);
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        .promo-chip .chip-label {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            display: block;
+        }
+
+        .promo-chip .chip-code {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: 0.04em;
+        }
+
+        /* ── PAGE HEADER HERO ── */
+        .page-hero {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 2.5rem 2rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .page-hero-text {
+            flex: 1;
+        }
+
+        .page-hero-eyebrow {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .page-hero-eyebrow::before {
+            content: '';
+            display: inline-block;
+            width: 18px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .page-hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+
+        .page-hero h1 em {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .page-hero-sub {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+            max-width: 480px;
+            margin-bottom: 1.2rem;
+        }
+
+        .page-hero-pills {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .page-hero-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            padding: 0.28rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .page-hero-pill svg {
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .page-hero-art {
+            flex-shrink: 0;
+            opacity: 0.22;
+            pointer-events: none;
+        }
+
+        @media (max-width: 700px) {
+            .page-hero-art {
+                display: none;
+            }
+
+            .page-hero {
+                padding: 1.8rem 1rem 1.4rem;
+            }
+        }
+
+        /* ── DETAIL CHIPS ON CARDS ── */
+        .product-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            margin-bottom: 0.55rem;
+        }
+
+        .detail-chip {
+            font-size: 0.67rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.18rem 0.45rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        /* ── MODAL SPECS GRID ── */
+        .modal-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.55rem 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1rem 1.1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .spec-row {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .spec-label {
+            font-size: 0.66rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: var(--text-muted);
+        }
+
+        .spec-value {
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 480px) {
+            .modal-specs {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ── CATEGORIES ── */
+        .categories-section {
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 0.8rem;
+        }
+
+        @media (max-width: 1100px) {
+            .categories-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .categories-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 400px) {
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .cat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.2rem 0.8rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+            cursor: pointer;
+            transition: all 0.22s;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .cat-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 16px var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .cat-card.active {
+            border-color: var(--accent);
+            background: var(--accent-light);
+        }
+
+        .cat-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            transition: background 0.22s;
+        }
+
+        .cat-card:hover .cat-icon,
+        .cat-card.active .cat-icon {
+            background: var(--accent-light);
+        }
+
+        .cat-label {
+            font-size: 0.78rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /* ── PRODUCTS ── */
+        .products-section {
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+            padding: 0 2rem;
+        }
+
+        .products-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.2rem;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-muted);
+        }
+
+        .filter-tab:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .filter-tab.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        .sort-select {
+            padding: 0.35rem 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg-card);
+            font-size: 0.8rem;
+            color: var(--text-primary);
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.2rem;
+        }
+
+        @media (max-width: 600px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+
+            .products-section {
+                padding: 0 1rem;
+            }
+
+            .products-toolbar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.6rem;
+            }
+
+            .filter-tabs {
+                width: 100%;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                padding-bottom: 2px;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+
+            .filter-tabs::-webkit-scrollbar {
+                display: none;
+            }
+
+            .filter-tab {
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+
+            .sort-select {
+                width: 100%;
+            }
+
+            .product-name {
+                font-size: 0.85rem;
+            }
+
+            .product-desc {
+                display: none;
+            }
+
+            .product-info {
+                padding: 0.65rem;
+            }
+
+            .product-price {
+                font-size: 0.88rem;
+            }
+
+            .add-btn {
+                padding: 0.32rem 0.55rem;
+                font-size: 0.72rem;
+            }
+
+            nav {
+                padding: 0 1rem;
+            }
+
+            .page-header {
+                padding: 0 1rem;
+            }
+
+            .categories-section {
+                padding: 0 1rem;
+            }
+
+            .promo-section {
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+            }
+
+            .product-name {
+                font-size: 0.78rem;
+            }
+
+            .product-price {
+                font-size: 0.82rem;
+            }
+
+            .add-btn {
+                padding: 0.28rem 0.4rem;
+                font-size: 0.68rem;
+            }
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: all 0.25s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 8px 28px var(--shadow-lg);
+            transform: translateY(-3px);
+            border-color: transparent;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 0.7rem;
+            left: 0.7rem;
+            padding: 0.2rem 0.55rem;
+            border-radius: 6px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            z-index: 2;
+        }
+
+        .badge-new {
+            background: #2ecc71;
+            color: #fff;
+        }
+
+        .badge-sale {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .badge-best {
+            background: var(--star-orange);
+            color: #fff;
+        }
+
+        .product-img {
+            aspect-ratio: 4/3;
+            background: var(--product-cover);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .wishlist-btn {
+            position: absolute;
+            top: 0.7rem;
+            right: 0.7rem;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            z-index: 2;
+            color: var(--text-muted);
+        }
+
+        .wishlist-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .wishlist-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        .product-info {
+            padding: 0.9rem;
+        }
+
+        .product-cat-tag {
+            font-size: 0.68rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: var(--accent);
+            margin-bottom: 0.3rem;
+        }
+
+        .product-name {
+            font-family: "Playfair Display", serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+            line-height: 1.3;
+        }
+
+        .product-desc {
+            font-size: 0.76rem;
+            color: var(--text-muted);
+            margin-bottom: 0.6rem;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-stars {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-bottom: 0.6rem;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        .stars {
+            color: var(--star-orange);
+            font-size: 0.75rem;
+            letter-spacing: -0.05em;
+        }
+
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .product-price .old-price {
+            font-size: 0.78rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            margin-left: 0.3rem;
+        }
+
+        .add-btn {
+            padding: 0.38rem 0.75rem;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-family: inherit;
+        }
+
+        .add-btn:hover {
+            background: var(--accent-hover);
+        }
+
+        /* ── TOAST ── */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: var(--accent);
+            color: #fff;
+            padding: 0.7rem 1.4rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            z-index: 9999;
+            transition:
+                transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.3s;
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* ── EMPTY STATE ── */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-muted);
+        }
+
+        .empty-state svg {
+            margin-bottom: 1rem;
+            opacity: 0.4;
+        }
+
+        .empty-state p {
+            font-size: 0.95rem;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--footer-bg);
+            color: var(--footer-text);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.82rem;
+            margin-top: 3rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* ── PRODUCT MODAL ── */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s;
+        }
+
+        .modal-overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal {
+            background: var(--bg-card);
+            border-radius: 18px;
+            max-width: 680px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+            transform: translateY(20px) scale(0.97);
+            transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+        }
+
+        .modal-overlay.open .modal {
+            transform: translateY(0) scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--bg-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            z-index: 10;
+            transition: all 0.18s;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        .modal-img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 18px 18px 0 0;
+            display: block;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .modal-cat {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+        }
+
+        .modal-title {
+            font-family: "Playfair Display", serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.25;
+        }
+
+        .modal-stars {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .modal-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+            margin-bottom: 1.2rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+        }
+
+        .modal-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .modal-meta-chip {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.35rem 0.75rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .modal-meta-chip strong {
+            color: var(--text-primary);
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .modal-price {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            flex: 1;
+        }
+
+        .modal-price .old-price {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            margin-left: 0.4rem;
+        }
+
+        .modal-add-btn {
+            padding: 0.65rem 1.4rem;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-family: inherit;
+        }
+
+        .modal-add-btn:hover {
+            background: var(--accent-hover);
+        }
+
+        .modal-wish-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--bg-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .modal-wish-btn:hover,
+        .modal-wish-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        /* ── SCROLL REVEAL ── */
+        .sr {
+            opacity: 0;
+            transform: translateY(20px);
+            transition:
+                opacity 0.5s ease,
+                transform 0.5s ease;
+        }
+
+        .sr.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAV -->
+    <nav>
+        <a href="../../index.html" class="nav-logo-wrap">
+            <div class="nav-logo-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                </svg>
+            </div>
+            <span class="nav-logo">Read<span>ora</span>™</span>
+        </a>
+        <a href="../../index.html" class="nav-back">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="15 18 9 12 15 6" />
+            </svg>
+            Back to Store
+        </a>
+    </nav>
+
+    <!-- PROMO CODES -->
+    <div class="promo-section sr">
+        <div class="promo-box">
+            <h4>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                </svg>
+                Active Promo Codes
+            </h4>
+            <div class="promo-codes">
+                <!-- Promo codes will be dynamically loaded from Firestore here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE HERO HEADER -->
+    <div class="page-hero">
+        <div class="page-hero-inner">
+            <div class="page-hero-text">
+                <div class="page-hero-eyebrow">Readora&#x2122; Stationery &amp; Gifts</div>
+                <h1>Everything for the <em>creative desk</em></h1>
+                <p class="page-hero-sub">
+                    Journals, planners, pens, art supplies, stickers, desk d&#233;cor, and curated gift sets &#8212;
+                    handpicked for readers, writers, and makers.
+                </p>
+                <div class="page-hero-pills">
+                    <span class="page-hero-pill">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        Free shipping &#8369;1,500+
+                    </span>
+                    <span class="page-hero-pill">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        40+ products
+                    </span>
+                    <span class="page-hero-pill">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                        Curated picks only
+                    </span>
+                    <span class="page-hero-pill">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <rect x="1" y="3" width="15" height="13" rx="1" />
+                            <path d="M16 8h4a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3" />
+                        </svg>
+                        30-day returns
+                    </span>
+                </div>
+            </div>
+            <div class="page-hero-art" aria-hidden="true">
+                <svg width="180" height="160" viewBox="0 0 180 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="30" y="20" width="55" height="72" rx="5" fill="var(--accent)" opacity="0.85" />
+                    <rect x="36" y="20" width="4" height="72" fill="rgba(0,0,0,0.15)" />
+                    <line x1="44" y1="36" x2="78" y2="36" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" />
+                    <line x1="44" y1="44" x2="78" y2="44" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" />
+                    <line x1="44" y1="52" x2="78" y2="52" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" />
+                    <line x1="44" y1="60" x2="70" y2="60" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" />
+                    <rect x="100" y="15" width="10" height="80" rx="3" fill="#f4c842" />
+                    <polygon points="100,95 110,95 105,112" fill="#f0c0a0" />
+                    <polygon points="103,107 107,107 105,112" fill="#2c2c2c" />
+                    <rect x="100" y="15" width="10" height="8" rx="3" fill="#e8a0a0" />
+                    <rect x="122" y="25" width="8" height="70" rx="3" fill="#3a6bc0" />
+                    <polygon points="122,95 130,95 126,115" fill="#c0c0c0" />
+                    <rect x="122" y="25" width="8" height="6" rx="3" fill="#2a2a2a" />
+                    <circle cx="155" cy="55" r="20" fill="#e8a0d0" opacity="0.7" />
+                    <circle cx="155" cy="55" r="12" fill="var(--bg-primary)" opacity="0.6" />
+                    <circle cx="155" cy="55" r="5" fill="var(--bg-secondary)" />
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- CATEGORIES -->
+    <div class="categories-section sr">
+        <div class="section-title">Browse Categories</div>
+        <div class="categories-grid">
+            <a class="cat-card active" onclick="filterCat('all', this)">
+                <div class="cat-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                    </svg>
+                </div>
+                <span class="cat-label">All Stationery</span>
+            </a>
+            <a class="cat-card" onclick="filterCat('Journals', this)">
+                <div class="cat-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                    </svg>
+                </div>
+                <span class="cat-label">Journals</span>
+            </a>
+            <a class="cat-card" onclick="filterCat('Planners', this)">
+                <div class="cat-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" />
+                        <line x1="16" y1="2" x2="16" y2="6" />
+                        <line x1="8" y1="2" x2="8" y2="6" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
+                    </svg>
+                </div>
+                <span class="cat-label">Planners</span>
+            </a>
+            <a class="cat-card" onclick="filterCat('Pens', this)">
+                <div class="cat-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 19l7-7 3 3-7 7-3-3z" />
+                        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+                        <path d="M2 2l7.586 7.586" />
+                        <circle cx="11" cy="11" r="2" />
+                    </svg>
+                </div>
+                <span class="cat-label">Pens & Writing</span>
+            </a>
+            <a class="cat-card" onclick="filterCat('Art', this)">
+                <div class="cat-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="13.5" cy="6.5" r=".5" />
+                        <circle cx="17.5" cy="10.5" r=".5" />
+                        <circle cx="8.5" cy="7.5" r=".5" />
+                        <circle cx="6.5" cy="12.5" r=".5" />
+                        <path
+                            d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" />
+                    </svg>
+                </div>
+                <span class="cat-label">Art Supplies</span>
+            </a>
+            <a class="cat-card" onclick="filterCat('Bags', this)">
+                <div class="cat-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <path d="M16 10a4 4 0 0 1-8 0" />
+                    </svg>
+                </div>
+                <span class="cat-label">Bags & Totes</span>
+            </a>
+            <a class="cat-card" onclick="filterCat('Stickers', this)">
+                <div class="cat-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10A10 10 0 0 1 2 12c0-1.85.5-3.58 1.38-5.06L12 2z" />
+                        <path d="M12 2v10l6.36 6.36" />
+                    </svg>
+                </div>
+                <span class="cat-label">Stickers</span>
+            </a>
+            <a class="cat-card" onclick="filterCat('Decor', this)">
+                <div class="cat-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="7" width="20" height="14" rx="2" />
+                        <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+                        <line x1="12" y1="12" x2="12" y2="16" />
+                        <line x1="10" y1="14" x2="14" y2="14" />
+                    </svg>
+                </div>
+                <span class="cat-label">Desk Decor</span>
+            </a>
+            <a class="cat-card" onclick="filterCat('Gifts', this)">
+                <div class="cat-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 12 20 22 4 22 4 12" />
+                        <rect x="2" y="7" width="20" height="5" />
+                        <line x1="12" y1="22" x2="12" y2="7" />
+                        <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" />
+                        <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" />
+                    </svg>
+                </div>
+                <span class="cat-label">Gift Sets</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- PRODUCTS -->
+    <div class="products-section">
+        <div class="products-toolbar sr">
+            <div class="filter-tabs" id="filter-tabs">
+                <button class="filter-tab active" onclick="filterSort('all', this)">
+                    All
+                </button>
+                <button class="filter-tab" onclick="filterSort('bestseller', this)">
+                    Bestsellers
+                </button>
+                <button class="filter-tab" onclick="filterSort('new', this)">
+                    New Arrivals
+                </button>
+                <button class="filter-tab" onclick="filterSort('sale', this)">
+                    On Sale
+                </button>
+            </div>
+            <select class="sort-select" onchange="sortProducts(this.value)">
+                <option value="default">Sort: Featured</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="rating">Top Rated</option>
+            </select>
+        </div>
+        <div class="products-grid" id="products-grid"></div>
+        <div id="load-more-wrap" style="text-align:center;margin-top:2rem;display:none;">
+            <button id="load-more-btn" onclick="loadMore()"
+                style="padding:0.65rem 2rem;background:var(--bg-card);border:1.5px solid var(--border);border-radius:10px;font-family:inherit;font-size:0.88rem;font-weight:600;color:var(--text-primary);cursor:pointer;transition:all 0.2s;"
+                onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'"
+                onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-primary)'">
+                Load More
+            </button>
+            <div id="load-more-count" style="margin-top:0.6rem;font-size:0.78rem;color:var(--text-muted);"></div>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast" role="status" aria-live="polite">
+        <span id="toast-msg"></span>
+    </div>
+
+    <!-- PRODUCT MODAL -->
+    <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+        <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+            <img class="modal-img" id="modal-img" src="" alt="" />
+            <div class="modal-body">
+                <div class="modal-cat" id="modal-cat"></div>
+                <div class="modal-title" id="modal-title"></div>
+                <div class="modal-stars" id="modal-stars"></div>
+                <div class="modal-desc" id="modal-desc"></div>
+                <div class="modal-meta" id="modal-meta"></div>
+                <div class="modal-actions">
+                    <div class="modal-price" id="modal-price"></div>
+                    <button class="modal-wish-btn" id="modal-wish-btn" title="Wishlist" aria-label="Toggle wishlist">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                        </svg>
+                    </button>
+                    <button class="modal-add-btn" id="modal-add-btn">+ Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            © 2025 <strong>Readora™</strong> — Stationery & Gifts
+            &nbsp;|&nbsp; <a href="../../index.html">Back to Main Store</a>
+        </p>
+    </footer>
+
+    <script>
+        /* ── Product Data ── */
+        const products = [
+            {
+                id: 1,
+                name: "Leuchtturm1917 Notebook A5",
+                cat: "Journals",
+                desc: "Premium hardcover journal with numbered pages and an index — perfect for bullet journaling.",
+                material: "Hardcover, acid-free paper",
+                dimensions: "A5 · 148×210mm",
+                weight: "290g",
+                pages: "249 pages",
+                sku: "RAT-J001",
+                price: 950,
+                oldPrice: null,
+                stars: 4.8,
+                reviews: 1240,
+                tag: "bestseller",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 2,
+                name: "Moleskine Classic Notebook",
+                cat: "Journals",
+                desc: "The legendary notebook with a soft cover, ivory pages, and ribbon bookmark.",
+                material: "Soft cover, ivory paper",
+                dimensions: "A5 · 130×210mm",
+                weight: "215g",
+                pages: "192 pages",
+                sku: "RAT-J002",
+                price: 780,
+                oldPrice: null,
+                stars: 4.7,
+                reviews: 890,
+                tag: "bestseller",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 3,
+                name: "Readora Dotted Bullet Journal",
+                cat: "Journals",
+                desc: "160gsm ultra-thick paper that prevents ghosting and bleeding. Vegan leather cover.",
+                material: "Vegan leather, 160gsm paper",
+                dimensions: "A5 · 148×210mm",
+                weight: "340g",
+                pages: "160 dotted pages",
+                sku: "RAT-J003",
+                price: 420,
+                oldPrice: null,
+                stars: 4.9,
+                reviews: 560,
+                tag: "new",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 4,
+                name: "2025 Weekly Planner",
+                cat: "Planners",
+                desc: "Stay organized all year with weekly spreads, monthly goals, and habit trackers.",
+                material: "Hardcover, 100gsm paper",
+                dimensions: "A5 · 148×210mm",
+                weight: "380g",
+                pages: "224 pages",
+                sku: "RAT-P001",
+                price: 650,
+                oldPrice: 780,
+                stars: 4.6,
+                reviews: 320,
+                tag: "sale",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 5,
+                name: "Minimalist Daily Desk Pad",
+                cat: "Planners",
+                desc: "Tear-off daily planner with schedule, to-do list, and water tracker. 60 sheets.",
+                material: "Cardboard back, 80gsm sheets",
+                dimensions: "A4 · 210×297mm",
+                weight: "155g",
+                pages: "60 tear-off sheets",
+                sku: "RAT-P002",
+                price: 380,
+                oldPrice: null,
+                stars: 4.5,
+                reviews: 210,
+                tag: "",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 6,
+                name: "Pilot G-2 Gel Pen Set (12pc)",
+                cat: "Pens",
+                desc: "Smooth-writing retractable gel pens in 12 vibrant colours. A student favourite.",
+                material: "Plastic body, gel ink",
+                dimensions: "14.5cm length each",
+                weight: "130g (set)",
+                pages: "0.7mm nib · 12 colours",
+                sku: "RAT-W001",
+                price: 420,
+                oldPrice: null,
+                stars: 4.8,
+                reviews: 2100,
+                tag: "bestseller",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 7,
+                name: "Stabilo Boss Highlighters (6pc)",
+                cat: "Pens",
+                desc: "The iconic chisel-tip highlighter in 6 classic colours. Won't bleed through paper.",
+                material: "Plastic, water-based ink",
+                dimensions: "14.8cm length each",
+                weight: "95g (set)",
+                pages: "Chisel tip · 6 colours",
+                sku: "RAT-W002",
+                price: 285,
+                oldPrice: 350,
+                stars: 4.7,
+                reviews: 1450,
+                tag: "sale",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 8,
+                name: "Watercolor Paint Set 24pc",
+                cat: "Art",
+                desc: "Professional-grade watercolors in a compact tin. Rich pigments, easy to blend.",
+                                material: "Professional watercolors",
+                dimensions: "Compact tin set",
+                weight: "245g",
+                pages: "24 colour pans",
+                sku: "RAT-A001",
+price: 890,
+                oldPrice: null,
+                stars: 4.6,
+                reviews: 380,
+                tag: "new",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 9,
+                name: "Canvas Tote — Readora Edition",
+                cat: "Bags",
+                desc: "Heavy-duty cotton canvas with the Readora logo. Fits up to 4 hardcover books.",
+                                material: "Heavy-duty cotton canvas",
+                dimensions: "38x40cm handles",
+                weight: "285g",
+                pages: "Fits 4 hardcovers",
+                sku: "RAT-B001",
+price: 550,
+                oldPrice: null,
+                stars: 4.9,
+                reviews: 620,
+                tag: "new",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 10,
+                name: "Washi Tape Set (20 rolls)",
+                cat: "Art",
+                desc: "Mix of floral, geometric, and solid patterns. Perfect for journaling and decoration.",
+                                material: "Japanese washi paper",
+                dimensions: "15mm width each",
+                weight: "180g (set)",
+                pages: "20 assorted rolls",
+                sku: "RAT-A002",
+price: 320,
+                oldPrice: 400,
+                stars: 4.5,
+                reviews: 890,
+                tag: "sale",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 11,
+                name: "Moomin Sticky Note Set",
+                cat: "Art",
+                desc: "Adorable Moomin-themed sticky notes in assorted sizes and pastel colours.",
+                                material: "FSC paper, matte coating",
+                dimensions: "75x75mm assorted",
+                weight: "95g",
+                pages: "280 assorted sheets",
+                sku: "RAT-A003",
+price: 195,
+                oldPrice: null,
+                stars: 4.8,
+                reviews: 430,
+                tag: "new",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 12,
+                name: "Leather Pen Roll (8 slots)",
+                cat: "Bags",
+                desc: "Handstitched genuine leather pen roll. Keeps your pens organized and protected.",
+                                material: "Genuine leather, brass",
+                dimensions: "Holds 8 pens, rollable",
+                weight: "210g",
+                pages: "8 pen slots",
+                sku: "RAT-B002",
+price: 740,
+                oldPrice: null,
+                stars: 4.7,
+                reviews: 280,
+                tag: "bestseller",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            // ── New Journals ──
+            {
+                id: 13,
+                name: "Hobonichi Techo A6 Planner",
+                cat: "Journals",
+                desc: "Japan's cult-favourite planner on thin but tough Tomoe River paper. Pen-friendly and light.",
+                                material: "Tomoe River paper",
+                dimensions: "A6 · 105x148mm",
+                weight: "180g",
+                pages: "One day per page",
+                sku: "RAT-J004",
+price: 1280,
+                oldPrice: null,
+                stars: 4.9,
+                reviews: 870,
+                tag: "bestseller",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 14,
+                name: "Traveler's Notebook Refill Set",
+                cat: "Journals",
+                desc: "Set of 3 refill inserts — lined, blank, and kraft paper. Fits the standard Traveler's Notebook.",
+                                material: "Kraft / lined / blank paper",
+                dimensions: "Standard TN size",
+                weight: "140g (set)",
+                pages: "3 refill inserts",
+                sku: "RAT-J005",
+price: 520,
+                oldPrice: 640,
+                stars: 4.7,
+                reviews: 410,
+                tag: "sale",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 15,
+                name: "Bookbinding DIY Journal Kit",
+                cat: "Journals",
+                desc: "Make your own journal from scratch. Includes needle, wax thread, covers, and 120 pages.",
+                                material: "Linen thread, board cover",
+                dimensions: "A5 · 148x210mm",
+                weight: "310g",
+                pages: "120 pages included",
+                sku: "RAT-J006",
+price: 680,
+                oldPrice: null,
+                stars: 4.6,
+                reviews: 190,
+                tag: "new",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            // ── New Planners ──
+            {
+                id: 16,
+                name: "Undated Monthly Planner",
+                cat: "Planners",
+                desc: "Start any month you like. Monthly spreads with goal-setting pages and a yearly overview.",
+                                material: "Softcover, 100gsm paper",
+                dimensions: "A5 · 148x210mm",
+                weight: "295g",
+                pages: "14 monthly spreads",
+                sku: "RAT-P003",
+price: 490,
+                oldPrice: null,
+                stars: 4.5,
+                reviews: 305,
+                tag: "new",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 17,
+                name: "Student Study Planner A4",
+                cat: "Planners",
+                desc: "Semester-based layout with subject trackers, exam countdowns, and GPA log. 200 pages.",
+                                material: "Flexicover, 80gsm paper",
+                dimensions: "A4 · 210x297mm",
+                weight: "420g",
+                pages: "200 pages",
+                sku: "RAT-P004",
+price: 375,
+                oldPrice: 450,
+                stars: 4.8,
+                reviews: 540,
+                tag: "sale",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            // ── New Pens ──
+            {
+                id: 18,
+                name: "Zebra Mildliner Double-Ended Set (15pc)",
+                cat: "Pens",
+                desc: "Mild, eye-friendly highlighter colours that pair beautifully with pastel journals.",
+                                material: "Water-based ink, plastic",
+                dimensions: "15cm length each",
+                weight: "195g (set)",
+                pages: "Double-ended · 15pc",
+                sku: "RAT-W003",
+price: 580,
+                oldPrice: null,
+                stars: 4.9,
+                reviews: 1870,
+                tag: "bestseller",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 19,
+                name: "LAMY Safari Fountain Pen",
+                cat: "Pens",
+                desc: "Iconic entry-level fountain pen with a smooth steel nib. Great for everyday writing.",
+                                material: "ABS body, steel nib",
+                dimensions: "14.2cm length",
+                weight: "22g",
+                pages: "Medium nib, refillable",
+                sku: "RAT-W004",
+price: 1450,
+                oldPrice: null,
+                stars: 4.8,
+                reviews: 720,
+                tag: "bestseller",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 20,
+                name: "Tombow Dual Brush Pen Set (10pc)",
+                cat: "Pens",
+                desc: "Water-based, blendable brush pens for lettering and illustration. Super-flexible nib.",
+                                material: "Water-based ink, nylon tip",
+                dimensions: "15.9cm length each",
+                weight: "280g (set)",
+                pages: "Dual brush · 10pc",
+                sku: "RAT-W005",
+price: 760,
+                oldPrice: 920,
+                stars: 4.7,
+                reviews: 930,
+                tag: "sale",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 21,
+                name: "Pentel EnerGel 0.5mm (5pc Black)",
+                cat: "Pens",
+                desc: "Ultra-smooth liquid gel ink that dries instantly. The go-to pen for exam season.",
+                                material: "Liquid gel ink, plastic",
+                dimensions: "14cm length each",
+                weight: "55g (set)",
+                pages: "0.5mm · 5pc black",
+                sku: "RAT-W006",
+price: 220,
+                oldPrice: null,
+                stars: 4.8,
+                reviews: 3400,
+                tag: "bestseller",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            // ── New Art Supplies ──
+            {
+                id: 22,
+                name: "Sakura Pigma Micron Set (6pc)",
+                cat: "Art",
+                desc: "Archival-quality pigment ink pens for inking, sketching, and Zentangle. Fade-proof.",
+                                material: "Archival pigment ink",
+                dimensions: "16cm length each",
+                weight: "90g (set)",
+                pages: "6 nib sizes",
+                sku: "RAT-A004",
+price: 540,
+                oldPrice: null,
+                stars: 4.8,
+                reviews: 660,
+                tag: "new",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 23,
+                name: "Faber-Castell Polychromos 36pc",
+                cat: "Art",
+                desc: "Oil-based professional colour pencils with break-resistant cores. Vibrant, lightfast pigments.",
+                                material: "Oil-based pigment, cedar",
+                dimensions: "17.5cm length each",
+                weight: "360g (set)",
+                pages: "36 colour pencils",
+                sku: "RAT-A005",
+price: 2490,
+                oldPrice: 2800,
+                stars: 4.9,
+                reviews: 480,
+                tag: "sale",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 24,
+                name: "Copic Sketch Marker (single)",
+                cat: "Art",
+                desc: "The industry-standard alcohol marker beloved by illustrators and comic artists worldwide.",
+                                material: "Alcohol ink, twin-tipped",
+                dimensions: "15cm length",
+                weight: "14g each",
+                pages: "Flexible brush + chisel",
+                sku: "RAT-A006",
+price: 380,
+                oldPrice: null,
+                stars: 4.8,
+                reviews: 920,
+                tag: "",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 25,
+                name: "Acrylic Gouache Set 18pc",
+                cat: "Art",
+                desc: "Matte, opaque finish on any surface. Mix watercolor vibrancy with acrylic durability.",
+                                material: "Acrylic + gouache pigment",
+                dimensions: "60ml tubes",
+                weight: "540g (set)",
+                pages: "18 opaque colours",
+                sku: "RAT-A007",
+price: 1180,
+                oldPrice: null,
+                stars: 4.6,
+                reviews: 215,
+                tag: "new",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            // ── New Bags ──
+            {
+                id: 26,
+                name: "Cork Book Sleeve (A5)",
+                cat: "Bags",
+                desc: "Eco-friendly cork fabric sleeve padded to protect your journal or tablet on the go.",
+                                material: "Cork fabric, foam padding",
+                dimensions: "A5 · 160x220mm",
+                weight: "90g",
+                pages: "Zip closure",
+                sku: "RAT-B003",
+price: 480,
+                oldPrice: null,
+                stars: 4.6,
+                reviews: 155,
+                tag: "new",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 27,
+                name: "Rucksack — Bibliophile Edition",
+                cat: "Bags",
+                desc: "15L canvas backpack with a padded laptop sleeve and a secret book pocket at the back.",
+                                material: "Canvas, nylon lining",
+                dimensions: "30x42x14cm",
+                weight: "780g",
+                pages: "15L with laptop sleeve",
+                sku: "RAT-B004",
+price: 2200,
+                oldPrice: 2600,
+                stars: 4.7,
+                reviews: 340,
+                tag: "sale",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            // ── Stickers ──
+            {
+                id: 28,
+                name: "Floral Journaling Sticker Pack (200pc)",
+                cat: "Stickers",
+                desc: "Botanical watercolour stickers — flowers, leaves, and berries — on matte vinyl. Repositionable.",
+                                material: "Matte vinyl, repositionable",
+                dimensions: "Assorted sizes",
+                weight: "65g",
+                pages: "200 botanical stickers",
+                sku: "RAT-S001",
+price: 185,
+                oldPrice: null,
+                stars: 4.9,
+                reviews: 1120,
+                tag: "bestseller",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 29,
+                name: "Vintage Postage Stamp Stickers (80pc)",
+                cat: "Stickers",
+                desc: "Die-cut stickers designed to look like stamps from 20 fictional countries. Ideal for journals.",
+                                material: "PVC-free matte vinyl",
+                dimensions: "Assorted stamp shapes",
+                weight: "40g",
+                pages: "80 die-cut stickers",
+                sku: "RAT-S002",
+price: 145,
+                oldPrice: 180,
+                stars: 4.8,
+                reviews: 760,
+                tag: "sale",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 30,
+                name: "Kawaii Character Sticker Sheet Set",
+                cat: "Stickers",
+                desc: "6 full sheets of adorable chibi characters, food, and nature motifs. PVC-free and waterproof.",
+                                material: "PVC-free, waterproof vinyl",
+                dimensions: "A5 sheet size",
+                weight: "55g",
+                pages: "6 full sheets",
+                sku: "RAT-S003",
+price: 120,
+                oldPrice: null,
+                stars: 4.7,
+                reviews: 890,
+                tag: "new",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 31,
+                name: "Transparent PET Sticker Set (60pc)",
+                cat: "Stickers",
+                desc: "Clear background stickers for a seamless look on any page. Holographic accents on each piece.",
+                                material: "Transparent PET film",
+                dimensions: "Assorted sizes",
+                weight: "45g",
+                pages: "60pc holographic accents",
+                sku: "RAT-S004",
+price: 160,
+                oldPrice: null,
+                stars: 4.6,
+                reviews: 430,
+                tag: "new",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            // ── Desk Decor ──
+            {
+                id: 32,
+                name: "Ceramic Pen & Pencil Cup",
+                cat: "Decor",
+                desc: "Hand-glazed ceramic organizer in matte terracotta. Holds up to 20 pens and pencils.",
+                                material: "Hand-glazed ceramic",
+                dimensions: "8.5cm dia x 10cm H",
+                weight: "310g",
+                pages: "Holds 20 pens",
+                sku: "RAT-D001",
+price: 420,
+                oldPrice: null,
+                stars: 4.7,
+                reviews: 310,
+                tag: "new",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 33,
+                name: "Wooden Desk Organizer (5 slots)",
+                cat: "Decor",
+                desc: "Minimalist bamboo tray with separate slots for cards, pens, sticky notes, and clips.",
+                                material: "Natural bamboo",
+                dimensions: "32x20x6cm",
+                weight: "420g",
+                pages: "5 compartment slots",
+                sku: "RAT-D002",
+price: 780,
+                oldPrice: 950,
+                stars: 4.8,
+                reviews: 490,
+                tag: "sale",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 34,
+                name: "Brass Letter Opener",
+                cat: "Decor",
+                desc: "Weighty solid brass opener with an engraved leaf motif. A beautiful desk statement piece.",
+                                material: "Solid brass",
+                dimensions: "24cm length",
+                weight: "185g",
+                pages: "Engraved leaf motif",
+                sku: "RAT-D003",
+price: 650,
+                oldPrice: null,
+                stars: 4.9,
+                reviews: 180,
+                tag: "bestseller",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 35,
+                name: "Marble Bookends (pair)",
+                cat: "Decor",
+                desc: "Natural white marble bookends with a gold-tone steel base. Each pair is uniquely veined.",
+                                material: "Natural white marble, steel",
+                dimensions: "15x8cm each",
+                weight: "1.2kg (pair)",
+                pages: "Unique veining per pair",
+                sku: "RAT-D004",
+price: 1350,
+                oldPrice: null,
+                stars: 4.8,
+                reviews: 260,
+                tag: "bestseller",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 36,
+                name: "Sticky Note Holder — Acrylic",
+                cat: "Decor",
+                desc: "Clear acrylic holder fits standard Post-it pads. Keeps notes flat and accessible on your desk.",
+                                material: "Clear acrylic",
+                dimensions: "10x8x2cm",
+                weight: "85g",
+                pages: "Fits standard Post-it",
+                sku: "RAT-D005",
+price: 295,
+                oldPrice: null,
+                stars: 4.5,
+                reviews: 175,
+                tag: "new",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 37,
+                name: "Mini Succulent Planter Desk Set",
+                cat: "Decor",
+                desc: "Two ceramic pots with drainage holes, pebbles, and soil. Succulents not included (obviously).",
+                                material: "Glazed ceramic",
+                dimensions: "7cm dia each (x2)",
+                weight: "320g (set)",
+                pages: "With drainage holes",
+                sku: "RAT-D006",
+price: 360,
+                oldPrice: 420,
+                stars: 4.6,
+                reviews: 390,
+                tag: "sale",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            // ── Gift Sets ──
+            {
+                id: 38,
+                name: "The Journaling Starter Kit",
+                cat: "Gifts",
+                desc: "Everything to begin bullet journaling: Leuchtturm A5, 4 Micron pens, washi tape, and a sticker sheet.",
+                                material: "Assorted (kit bundle)",
+                dimensions: "Gift box 28x22x8cm",
+                weight: "950g",
+                pages: "5-piece starter bundle",
+                sku: "RAT-G001",
+price: 1650,
+                oldPrice: 1950,
+                stars: 4.9,
+                reviews: 540,
+                tag: "sale",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 39,
+                name: "Artist's Essentials Gift Box",
+                cat: "Gifts",
+                desc: "Curated set of watercolors, brush pens, a sketchbook, and a Sakura Micron set. Gift-wrapped.",
+                                material: "Assorted (artist bundle)",
+                dimensions: "Gift box 32x26x10cm",
+                weight: "1.3kg",
+                pages: "Gift-wrapped, 6-piece",
+                sku: "RAT-G002",
+price: 2100,
+                oldPrice: null,
+                stars: 4.8,
+                reviews: 320,
+                tag: "bestseller",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 40,
+                name: "Desk Lover's Care Package",
+                cat: "Gifts",
+                desc: "Marble bookends, a ceramic pen cup, brass letter opener, and a scented candle — all wrapped.",
+                                material: "Marble, ceramic, brass, wax",
+                dimensions: "Gift box 35x28x12cm",
+                weight: "2.1kg",
+                pages: "4-piece care package",
+                sku: "RAT-G003",
+price: 2450,
+                oldPrice: 2900,
+                stars: 4.9,
+                reviews: 210,
+                tag: "sale",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+            {
+                id: 41,
+                name: "Pen Lover's Set (Premium)",
+                cat: "Gifts",
+                desc: "LAMY Safari fountain pen, Pilot G-2 pack, 10 Mildliners, and a leather pen roll — beautifully boxed.",
+                                material: "Mixed materials (pen bundle)",
+                dimensions: "Gift box 30x20x8cm",
+                weight: "980g",
+                pages: "4-piece premium set",
+                sku: "RAT-G004",
+price: 2980,
+                oldPrice: null,
+                stars: 4.9,
+                reviews: 155,
+                tag: "new",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" style="width:100%;height:100%;display:block"><rect width="400" height="300" fill="#ede7d9"/><g transform="translate(200,150)"><rect x="-18" y="-60" width="36" height="90" rx="5" fill="#c0392b" opacity="0.18"/><rect x="-12" y="-60" width="24" height="80" rx="3" fill="#c0392b" opacity="0.35"/><polygon points="0,-80 -12,-60 12,-60" fill="#f4c6a0" opacity="0.8"/><rect x="-12" y="20" width="24" height="12" rx="2" fill="#a0785a" opacity="0.5"/><rect x="-30" y="-55" width="18" height="75" rx="4" fill="#5a7fc0" opacity="0.18"/><rect x="-25" y="-55" width="12" height="66" rx="2" fill="#5a7fc0" opacity="0.32"/><polygon points="-19,-72 -25,-55 -13,-55" fill="#f4e0a0" opacity="0.8"/><rect x="14" y="-48" width="18" height="68" rx="4" fill="#2ecc71" opacity="0.18"/><rect x="18" y="-48" width="12" height="60" rx="2" fill="#2ecc71" opacity="0.32"/><polygon points="24,-64 18,-48 30,-48" fill="#f4e0a0" opacity="0.8"/></g><text x="200" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#a0907a" letter-spacing="2">STATIONERY</text></svg>`,
+            },
+        ];
+
+        let activeTag = "all";
+        let activeCat = "all";
+        let sortMode = "default";
+        const wishlist = new Set();
+        const PAGE_SIZE = 12;
+        let visibleCount = PAGE_SIZE;
+        let currentList = [];
+
+        function stars(r) {
+            const full = Math.floor(r),
+                half = r % 1 >= 0.5;
+            return (
+                "★".repeat(full) +
+                (half ? "½" : "") +
+                "☆".repeat(5 - full - (half ? 1 : 0))
+            );
+        }
+
+        function buildCard(p, idx) {
+            const chips = [
+                p.material ? `<span class="detail-chip">${p.material}</span>` : '',
+                p.dimensions ? `<span class="detail-chip">${p.dimensions}</span>` : '',
+                p.weight ? `<span class="detail-chip">${p.weight}</span>` : '',
+            ].filter(Boolean).join('');
+            return `
+            <div class="product-card sr" style="animation-delay:${idx * 0.05}s" onclick="openModal(${p.id})" role="button" tabindex="0" aria-label="View details for ${p.name}">
+                ${p.tag === "new"
+                    ? '<span class="product-badge badge-new">New</span>'
+                    : p.tag === "sale"
+                        ? '<span class="product-badge badge-sale">Sale</span>'
+                        : p.tag === "bestseller"
+                            ? '<span class="product-badge badge-best">Best</span>'
+                            : ""
+                }
+                <button class="wishlist-btn ${wishlist.has(p.id) ? "active" : ""}" onclick="event.stopPropagation();toggleWish(${p.id},this)" title="Wishlist" aria-label="${wishlist.has(p.id) ? "Remove from wishlist" : "Add to wishlist"}: ${p.name}">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="${wishlist.has(p.id) ? "currentColor" : "none"}" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </button>
+                <div class="product-img">${p.icon}</div>
+                <div class="product-info">
+                    <div class="product-cat-tag">${p.cat}</div>
+                    <div class="product-name">${p.name}</div>
+                    <div class="product-desc">${p.desc}</div>
+                    ${chips ? `<div class="product-details">${chips}</div>` : ''}
+                    <div class="product-stars">
+                        <span class="stars">${stars(p.stars)}</span>
+                        ${p.stars} (${p.reviews.toLocaleString()})
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price">
+                            &#8369;${p.price.toLocaleString()}
+                            ${p.oldPrice ? `<span class="old-price">&#8369;${p.oldPrice.toLocaleString()}</span>` : ""}
+                        </div>
+                        <button class="add-btn" onclick='event.stopPropagation();addToCart(${p.id}, ${JSON.stringify(p.name)}, ${p.price})' aria-label="Add ${p.name} to cart">+ Add</button>
+                    </div>
+                </div>
+            </div>`;
+        }
+
+        function updateLoadMore() {
+            const wrap = document.getElementById("load-more-wrap");
+            const countEl = document.getElementById("load-more-count");
+            const btn = document.getElementById("load-more-btn");
+            const remaining = currentList.length - visibleCount;
+            if (remaining > 0) {
+                wrap.style.display = "block";
+                const nextBatch = Math.min(remaining, PAGE_SIZE);
+                btn.textContent = `Load More (${nextBatch} of ${remaining} remaining)`;
+                countEl.textContent = `Showing ${Math.min(visibleCount, currentList.length)} of ${currentList.length} products`;
+            } else {
+                wrap.style.display = currentList.length > PAGE_SIZE ? "block" : "none";
+                btn.style.display = "none";
+                countEl.textContent = `Showing all ${currentList.length} products`;
+            }
+        }
+
+        function renderProducts() {
+            let list = [...products];
+            if (activeCat !== "all")
+                list = list.filter((p) => p.cat === activeCat);
+            if (activeTag === "bestseller")
+                list = list.filter((p) => p.tag === "bestseller");
+            else if (activeTag === "new")
+                list = list.filter((p) => p.tag === "new");
+            else if (activeTag === "sale")
+                list = list.filter((p) => p.tag === "sale");
+            if (sortMode === "price-asc")
+                list.sort((a, b) => a.price - b.price);
+            else if (sortMode === "price-desc")
+                list.sort((a, b) => b.price - a.price);
+            else if (sortMode === "rating")
+                list.sort((a, b) => b.stars - a.stars);
+
+            currentList = list;
+            visibleCount = PAGE_SIZE;
+
+            const grid = document.getElementById("products-grid");
+            const btn = document.getElementById("load-more-btn");
+            if (btn) btn.style.display = "inline-block";
+
+            if (!list.length) {
+                grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <p>No products found in this filter.</p></div>`;
+                document.getElementById("load-more-wrap").style.display = "none";
+                return;
+            }
+
+            const visible = list.slice(0, visibleCount);
+            grid.innerHTML = visible.map((p, i) => buildCard(p, i)).join("");
+            updateLoadMore();
+
+            // scroll reveal
+            requestAnimationFrame(() => {
+                grid.querySelectorAll(".sr:not(.visible)").forEach((el, i) => {
+                    setTimeout(() => el.classList.add("visible"), i * 50);
+                });
+            });
+        }
+
+        function loadMore() {
+            const grid = document.getElementById("products-grid");
+            const prevCount = visibleCount;
+            visibleCount = Math.min(visibleCount + PAGE_SIZE, currentList.length);
+            const newItems = currentList.slice(prevCount, visibleCount);
+            newItems.forEach((p, i) => {
+                grid.insertAdjacentHTML("beforeend", buildCard(p, prevCount + i));
+            });
+            updateLoadMore();
+            // scroll reveal for new cards
+            requestAnimationFrame(() => {
+                grid.querySelectorAll(".sr:not(.visible)").forEach((el, i) => {
+                    setTimeout(() => el.classList.add("visible"), i * 50);
+                });
+            });
+        }
+
+        function filterCat(cat, el) {
+            activeCat = cat;
+            document
+                .querySelectorAll(".cat-card")
+                .forEach((c) => c.classList.remove("active"));
+            el.classList.add("active");
+            renderProducts();
+        }
+
+        function filterSort(tag, el) {
+            activeTag = tag;
+            document
+                .querySelectorAll(".filter-tab")
+                .forEach((t) => t.classList.remove("active"));
+            el.classList.add("active");
+            renderProducts();
+        }
+
+        function sortProducts(val) {
+            sortMode = val;
+            renderProducts();
+        }
+
+        function toggleWish(id, btn) {
+            if (wishlist.has(id)) {
+                wishlist.delete(id);
+                btn.classList.remove("active");
+                btn.querySelector("svg").setAttribute("fill", "none");
+                toast("Removed from wishlist");
+            } else {
+                wishlist.add(id);
+                btn.classList.add("active");
+                btn.querySelector("svg").setAttribute(
+                    "fill",
+                    "currentColor",
+                );
+                toast("Added to wishlist ♥");
+            }
+        }
+
+        function addToCart(id, name, price) {
+            /* Auth gate — mirror the main store's login requirement */
+            const userRaw = localStorage.getItem("ra-user");
+            const isLoggedIn =
+                localStorage.getItem("ra-loggedin") === "true" ||
+                (userRaw &&
+                    (() => {
+                        try {
+                            return !!JSON.parse(userRaw);
+                        } catch (e) {
+                            return false;
+                        }
+                    })());
+            if (!isLoggedIn) {
+                toast("Please sign in to add items to your cart.");
+                return;
+            }
+            const cartKey = "ra-cart";
+            let cart = [];
+            try {
+                const raw = localStorage.getItem(cartKey);
+                if (raw) cart = JSON.parse(raw);
+                if (!Array.isArray(cart)) cart = [];
+            } catch (e) {
+                cart = [];
+            }
+            const sid = 9000 + id;
+            const existing = cart.find((c) => c.id === sid);
+            if (existing) {
+                existing.qty = (existing.qty || 1) + 1;
+            } else {
+                cart.push({
+                    id: sid,
+                    title: name,
+                    author: "Stationery",
+                    price,
+                    qty: 1,
+                    cat: "Stationery",
+                    color: "#c0392b",
+                });
+            }
+            try {
+                localStorage.setItem(cartKey, JSON.stringify(cart));
+            } catch (e) {
+                toast("Could not save to cart");
+                return;
+            }
+            toast(`"${name}" added to cart ✓`);
+        }
+
+        function openModal(id) {
+            const p = products.find(x => x.id === id);
+            if (!p) return;
+            // image src from the icon string
+            const srcMatch = p.icon.match(/src="([^"]+)"/);
+            const imgSrc = srcMatch ? srcMatch[1] : '';
+            const altMatch = p.icon.match(/alt="([^"]+)"/);
+            const imgAlt = altMatch ? altMatch[1] : p.name;
+
+            document.getElementById('modal-img').src = imgSrc;
+            document.getElementById('modal-img').alt = imgAlt;
+            document.getElementById('modal-cat').textContent = p.cat;
+            document.getElementById('modal-title').textContent = p.name;
+            document.getElementById('modal-stars').innerHTML =
+                `<span class="stars" style="color:var(--star-orange)">${stars(p.stars)}</span> ${p.stars} &nbsp;·&nbsp; ${p.reviews.toLocaleString()} reviews`;
+            document.getElementById('modal-desc').textContent = p.desc;
+
+            // meta chips / specs grid
+            const tagLabel = p.tag === 'new' ? '&#x1F7E2; New Arrival' : p.tag === 'sale' ? '&#x1F534; On Sale' : p.tag === 'bestseller' ? '&#x2B50; Bestseller' : '';
+            const hasSpecs = p.material || p.dimensions || p.weight || p.pages || p.sku;
+            if (hasSpecs) {
+                const specRows = [
+                    p.material   ? `<div class="spec-row"><span class="spec-label">Material</span><span class="spec-value">${p.material}</span></div>` : '',
+                    p.dimensions ? `<div class="spec-row"><span class="spec-label">Size</span><span class="spec-value">${p.dimensions}</span></div>` : '',
+                    p.weight     ? `<div class="spec-row"><span class="spec-label">Weight</span><span class="spec-value">${p.weight}</span></div>` : '',
+                    p.pages      ? `<div class="spec-row"><span class="spec-label">Details</span><span class="spec-value">${p.pages}</span></div>` : '',
+                    p.sku        ? `<div class="spec-row"><span class="spec-label">SKU</span><span class="spec-value">${p.sku}</span></div>` : '',
+                    tagLabel     ? `<div class="spec-row"><span class="spec-label">Status</span><span class="spec-value">${tagLabel}</span></div>` : '',
+                ].filter(Boolean).join('');
+                document.getElementById('modal-meta').innerHTML = `<div class="modal-specs">${specRows}</div>`;
+            } else {
+                document.getElementById('modal-meta').innerHTML = [
+                    `<span class="modal-meta-chip"><strong>Category:</strong> ${p.cat}</span>`,
+                    tagLabel ? `<span class="modal-meta-chip">${tagLabel}</span>` : '',
+                    `<span class="modal-meta-chip"><strong>Rating:</strong> ${p.stars}/5</span>`,
+                    `<span class="modal-meta-chip"><strong>Reviews:</strong> ${p.reviews.toLocaleString()}</span>`,
+                ].filter(Boolean).join('');
+            }
+
+            // price
+            document.getElementById('modal-price').innerHTML =
+                `₱${p.price.toLocaleString()}` +
+                (p.oldPrice ? ` <span class="old-price">₱${p.oldPrice.toLocaleString()}</span>` : '');
+
+            // wishlist button state
+            const wishBtn = document.getElementById('modal-wish-btn');
+            wishBtn.classList.toggle('active', wishlist.has(id));
+            wishBtn.querySelector('svg').setAttribute('fill', wishlist.has(id) ? 'currentColor' : 'none');
+            wishBtn.onclick = () => {
+                if (wishlist.has(id)) {
+                    wishlist.delete(id);
+                    wishBtn.classList.remove('active');
+                    wishBtn.querySelector('svg').setAttribute('fill', 'none');
+                    toast('Removed from wishlist');
+                } else {
+                    wishlist.add(id);
+                    wishBtn.classList.add('active');
+                    wishBtn.querySelector('svg').setAttribute('fill', 'currentColor');
+                    toast('Added to wishlist ♥');
+                }
+                // sync card wishlist button if visible
+                const cardBtn = document.querySelector(`.wishlist-btn[onclick*="toggleWish(${id},"]`);
+                if (cardBtn) {
+                    cardBtn.classList.toggle('active', wishlist.has(id));
+                    cardBtn.querySelector('svg').setAttribute('fill', wishlist.has(id) ? 'currentColor' : 'none');
+                }
+            };
+
+            // add to cart button
+            document.getElementById('modal-add-btn').onclick = () => addToCart(id, p.name, p.price);
+
+            document.getElementById('modal-overlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(e) {
+            if (e && e.target !== document.getElementById('modal-overlay') && !e.target.classList.contains('modal-close')) return;
+            document.getElementById('modal-overlay').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { document.getElementById('modal-overlay').classList.remove('open'); document.body.style.overflow = ''; } });
+
+        let toastTimer;
+        function toast(msg) {
+            const t = document.getElementById("toast");
+            const msgEl = document.getElementById("toast-msg");
+            if (!t) return;
+            if (msgEl) msgEl.textContent = msg;
+            else t.textContent = msg;
+            t.classList.add("show");
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => t.classList.remove("show"), 4000);
+        }
+
+        // scroll reveal for static sections
+        const obs = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((e) => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add("visible");
+                        obs.unobserve(e.target);
+                    }
+                });
+            },
+            { threshold: 0.1 },
+        );
+        document.querySelectorAll(".sr").forEach((el) => obs.observe(el));
+
+        renderProducts();
+
+        /* ── IMPROVE-14: Auto-filter from ?cat= query param ── */
+        (function applyUrlCatFilter() {
+            const params = new URLSearchParams(location.search);
+            const cat = params.get("cat");
+            if (!cat) return;
+            // Normalise: map URL cat names to internal cat keys
+            const catMap = {
+                Journals: "Journals",
+                Planners: "Planners",
+                Pens: "Pens",
+                "Pens & Writing": "Pens",
+                "Pens+%26+Writing": "Pens",
+                "Art Supplies": "Art",
+                "Art+Supplies": "Art",
+                Art: "Art",
+                Bags: "Bags",
+                "Bags & Totes": "Bags",
+                "Bags+%26+Totes": "Bags",
+                Stickers: "Stickers",
+                Decor: "Decor",
+                "Desk Decor": "Decor",
+                "Desk+Decor": "Decor",
+                Gifts: "Gifts",
+                "Gift Sets": "Gifts",
+                "Gift+Sets": "Gifts",
+                All: "all",
+                "All Stationery": "all",
+            };
+            const decoded = decodeURIComponent(cat);
+            const internalCat = catMap[decoded] || catMap[cat] || decoded;
+            if (internalCat === "all") return; // already showing all
+            activeCat = internalCat;
+            // Highlight the matching cat-card
+            document.querySelectorAll(".cat-card").forEach((card) => {
+                const label =
+                    card.querySelector(".cat-label")?.textContent?.trim() ||
+                    "";
+                const matches =
+                    label.toLowerCase().includes(decoded.toLowerCase()) ||
+                    (decoded === "Art" && label === "Art Supplies") ||
+                    (decoded === "Bags" && label === "Bags & Totes") ||
+                    (decoded === "Pens" && label === "Pens & Writing") ||
+                    (decoded === "Decor" && label === "Desk Decor") ||
+                    (decoded === "Gifts" && label === "Gift Sets");
+                card.classList.toggle("active", matches);
+            });
+            renderProducts();
+        })();
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyC6y29soPwx4f7uuntiOiaJkEzT11KDIP4",
+            authDomain: "readorasite.firebaseapp.com",
+            projectId: "readorasite",
+            storageBucket: "readorasite.firebasestorage.app",
+            messagingSenderId: "658127627603",
+            appId: "1:658127627603:web:cffb0636c0a94313d3eda6",
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        async function loadPromoCodes() {
+            const container = document.querySelector(".promo-codes");
+            if (!container) return;
+            
+            let html = "";
+            let count = 0;
+            
+            try {
+                const snap = await db.collection("promoCodes").get();
+                snap.forEach(doc => {
+                    const p = doc.data();
+                    if (p.active) {
+                        count++;
+                        const label = p.type === "percent" ? `${p.discount}% Off Cart` : `₱${p.discount} Off`;
+                        // Assume large fixed discounts are gift cards visually
+                        const finalLabel = (p.type === "fixed" && p.discount >= 100 && doc.id.includes("GIFT")) 
+                                         ? `₱${p.discount} Gift Card` : label;
+                        
+                        // Add detail formatting requested by user
+                        const expiryText = p.expiry ? `Valid until ${p.expiry}` : "No expiry";
+                        const descText = p.type === "percent" ? "Applies to total cart value" : "Fixed discount applied at checkout";
+                        
+                        html += `
+                        <div class="promo-chip" onclick="toast('Code ${doc.id} copied! ${finalLabel}')" style="display: flex; flex-direction: column; align-items: flex-start; padding: 0.8rem 1rem; gap: 0.3rem;">
+                            <div style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
+                                <span class="chip-label" style="font-size: 1rem;">${finalLabel}</span>
+                                <span class="chip-code" style="padding: 0.2rem 0.5rem; background: var(--bg-primary); border-radius: 4px;">${doc.id}</span>
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.1rem; text-align: left; line-height: 1.2;">
+                                <span>✨ ${descText}</span>
+                                <span>📅 ${expiryText}</span>
+                            </div>
+                        </div>`;
+                    }
+                });
+            } catch(e) {
+                console.error("Error fetching promo codes for stationery:", e);
+                count = 0; // Force fallback
+            }
+            
+            // Fallback if Firestore collection is empty (e.g. seed.js wasn't run) or error occurred
+            if (count === 0) {
+                const fallbacks = [
+                    { id: "READGIFT", label: "₱100 Gift Card", desc: "Fixed discount applied at checkout", exp: "Valid until 2025-12-31" },
+                    { id: "READ10", label: "₱100 Off", desc: "Fixed discount applied at checkout", exp: "Valid until 2025-06-30" },
+                    { id: "READORA10", label: "10% Off Cart", desc: "Applies to total cart value", exp: "Valid until 2025-12-31" },
+                    { id: "JOURNAL20", label: "₱80 Off", desc: "Stationery special discount", exp: "Valid until 2025-10-15" },
+                    { id: "STATFREE", label: "₱50 Off", desc: "Fixed discount applied at checkout", exp: "No expiry" }
+                ];
+                fallbacks.forEach(f => {
+                    html += `
+                    <div class="promo-chip" onclick="toast('Code ${f.id} copied! ${f.label}')" style="display: flex; flex-direction: column; align-items: flex-start; padding: 0.8rem 1rem; gap: 0.3rem;">
+                        <div style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
+                            <span class="chip-label" style="font-size: 1rem;">${f.label}</span>
+                            <span class="chip-code" style="padding: 0.2rem 0.5rem; background: var(--bg-primary); border-radius: 4px;">${f.id}</span>
+                        </div>
+                        <div style="font-size: 0.75rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.1rem; text-align: left; line-height: 1.2;">
+                            <span>✨ ${f.desc}</span>
+                            <span>📅 ${f.exp}</span>
+                        </div>
+                    </div>`;
+                });
+            }
+            
+            if (html) {
+                container.innerHTML = html;
+            }
+        }
+        
+        loadPromoCodes();
+    </script>
+</body>
+
+</html>
